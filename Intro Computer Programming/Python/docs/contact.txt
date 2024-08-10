@@ -1,0 +1,3 @@
+{"name": "Andrew Chukwuweike", "phone": "3893577933", "email": "unaware@gmail.com"}
+{"name": "Winner Chris", "phone": "894584503", "email": "lovelife@gmail.com"}
+{"name": "augustine", "phone": "783r7r7889", "email": "augustine@gmail.com"}
