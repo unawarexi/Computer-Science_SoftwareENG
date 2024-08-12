@@ -13,22 +13,25 @@ import ReactRouter from "./React-Navigation/ReactRouter";
 import DynamicRoute from "./React-Navigation/DynamicRoute";
 import AxiosList from "./React-Apis/AxiosList";
 import IndexComponent from "./React-Redux/components/IndexComponent";
+import { ContextProvider } from "./context/ContextProvider";
 
 function App() {
   return (
-    <div className="">
-      {/* <UserState /> */}
-      {/* <ListDetail /> */}
-      {/* <UserProfile />
+    <ContextProvider>
+      <div className="">
+        {/* <UserState /> */}
+        {/* <ListDetail /> */}
+        {/* <UserProfile />
       <SecondPropComp /> */}
 
-      <Routes>
-        <Route path="/" element={<ReactRouter />} />
-        <Route path="/auth" element={<DynamicRoute />} />
-        <Route path="/axios" element={<AxiosList />} />
-        <Route path="/redux" element={<IndexComponent />} />
-      </Routes>
-    </div>
+        <Routes>
+          <Route path="/" element={<ReactRouter />} />
+          <Route path="/auth" element={<DynamicRoute />} />
+          <Route path="/axios" element={<AxiosList />} />
+          <Route path="/redux" element={<IndexComponent />} />
+        </Routes>
+      </div>
+    </ContextProvider>
 
     // <div className="App justify-center items-center w-screen min-h-screen flex">
     //   <Routes>

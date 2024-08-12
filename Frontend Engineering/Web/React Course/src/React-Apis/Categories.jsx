@@ -1,48 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
+import { CategoriesContext } from "../context/ContextProvider";
+
 const Categories = () => {
-  // State to store categories data
-  const [categories, setCategories] = useState([]);
-  // State to manage loading status
-  const [loading, setLoading] = useState(true);
-  // State to handle error if API call fails
-  const [error, setError] = useState(null);
-
-  // useEffect to fetch data from API when the component mounts
-  useEffect(() => {
-    // Fetch data from the API
-    axios
-      .get("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((response) => {
-        // Update categories state with fetched data
-        setCategories(response.data.categories);
-        // Set loading to false as data fetching is complete
-        setLoading(false);
-      })
-      .catch((error) => {
-        // Set error state if there's an error during fetching
-        setError(error);
-        // Set loading to false as data fetching is complete even with an error
-        setLoading(false);
-      });
-  }, []);
-
-  // Utility function to truncate text to a specified number of words
-  const truncateText = (text, wordLimit) => {
-    // Split text into an array of words
-    const words = text.split(" ");
-    // Check if the number of words exceeds the limit
-    if (words.length > wordLimit) {
-      // Return the first 'wordLimit' words joined by space, followed by "..."
-      return words.slice(0, wordLimit).join(" ") + "...";
-    }
-    // Return original text if word count is within the limit
-    return text;
-  };
+  const { categories, loadingCategories, error, truncateText } =
+    useContext(CategoriesContext);
 
   // Display loading message if data is still being fetched
-  if (loading) {
+  if (loadingCategories) {
     return (
       <div className="flex justify-center items-center h-screen">
         <p>Loading...</p>

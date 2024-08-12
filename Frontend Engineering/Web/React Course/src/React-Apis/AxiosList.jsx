@@ -1,49 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import Categories from "./Categories";
-
+import { CategoriesContext } from "../context/ContextProvider";
 function AxiosList() {
-  // State to hold the list of recipes
-  const [recipes, setRecipes] = useState([]);
-  // State to hold the user's query input
-  const [query, setQuery] = useState("vegan");
-  // State to track if the component is loading data
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Base URL for the API
-  const BASE_URL = "https://www.themealdb.com/api/json/v1/1/search.php";
-
-  // Function to fetch recipes based on a query
-  const fetchRecipes = async (query) => {
-    setIsLoading(true); // Set loading state to true
-    try {
-      // Make GET request to the API with the query parameter
-      const response = await axios.get(BASE_URL, {
-        params: {
-          s: query,
-        },
-      });
-      // Set the response data (meals) to the recipes state
-      setRecipes(response.data.meals);
-      console.log(response.data.meals);
-    } catch (error) {
-      // Log any errors during the fetch
-      console.error("Error fetching recipes:", error);
-    } finally {
-      setIsLoading(false); // Set loading state to false
-    }
-  };
-
-  // useEffect to fetch recipes when the component mounts or query changes
-  useEffect(() => {
-    fetchRecipes(query); // Fetch recipes with the current query
-  }, [query]);
-
-  // Handle form submission
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission
-    fetchRecipes(query); // Fetch recipes with the new query
-  };
+  const { recipes, query, setQuery, isLoading, handleSubmit } =
+    useContext(CategoriesContext);
 
   return (
     <div className="container mx-auto p-4">
