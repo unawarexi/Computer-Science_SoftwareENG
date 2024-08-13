@@ -1,11 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
+import useResponsiveness from "../hooks/UseResponsive";
+
 import { CategoriesContext } from "../context/ContextProvider";
 
 const Categories = () => {
   const { categories, loadingCategories, error, truncateText } =
     useContext(CategoriesContext);
+
+  const { isMobile, isTablet, isDesktop } = useResponsiveness();
 
   // Display loading message if data is still being fetched
   if (loadingCategories) {
@@ -44,9 +48,15 @@ const Categories = () => {
               />
               <div className="p-4">
                 {/* Display category name */}
-                <h2 className="text-2xl font-bold mb-2">
-                  {category.strCategory}
-                </h2>
+                {isMobile || isTablet ? (
+                  <h2 className="text-2xl text-red-500 font-bold mb-2">
+                    {category.strCategory}
+                  </h2>
+                ) : (
+                  <h2 className="text-2xl font-bold mb-2">
+                    {category.strCategory}
+                  </h2>
+                )}
                 {/* Display truncated category description */}
                 <p className="text-gray-700">
                   {truncateText(category.strCategoryDescription, 20)}

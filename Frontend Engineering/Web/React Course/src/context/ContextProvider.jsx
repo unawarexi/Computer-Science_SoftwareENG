@@ -5,40 +5,48 @@ import axios from "axios";
 const CategoriesContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  // State to hold the list of recipes
+  /**---------- states -----------------/
+   * State to hold the list of recipes
+   * State to hold the user's query input
+   * State to track if the component is loading data
+   *
+   *
+   * State to store categories data
+   * State to manage loading status for categories
+   * State to handle error if API call fails
+   *
+   */
+
   const [recipes, setRecipes] = useState([]);
-  // State to hold the user's query input
   const [query, setQuery] = useState("vegan");
-  // State to track if the component is loading data
   const [isLoading, setIsLoading] = useState(false);
 
   /**------- CATEGORIES ------------ */
-  // State to store categories data
   const [categories, setCategories] = useState([]);
-  // State to manage loading status for categories
   const [loadingCategories, setLoadingCategories] = useState(true);
-  // State to handle error if API call fails
   const [error, setError] = useState(null);
 
   // Base URLs for the APIs
   const BASE_URL_RECIPES = import.meta.env.VITE_BASE_URL_RECIPES;
   const BASE_URL_CATEGORIES = import.meta.env.VITE_BASE_URL_CATEGORIES;
 
-  // Function to fetch recipes based on a query
+  /** -------------Function to fetch recipes based on a query
+   * Make GET request to the API with the query parameter
+   * Set the response data (meals) to the recipes state
+   *  Log any errors during the fetch
+   */
   const fetchRecipes = async (query) => {
     setIsLoading(true); // Set loading state to true
     try {
-      // Make GET request to the API with the query parameter
       const response = await axios.get(BASE_URL_RECIPES, {
         params: {
           s: query,
         },
       });
-      // Set the response data (meals) to the recipes state
+
       setRecipes(response.data.meals);
       console.log(response.data.meals);
     } catch (error) {
-      // Log any errors during the fetch
       console.error("Error fetching recipes:", error);
     } finally {
       setIsLoading(false); // Set loading state to false
