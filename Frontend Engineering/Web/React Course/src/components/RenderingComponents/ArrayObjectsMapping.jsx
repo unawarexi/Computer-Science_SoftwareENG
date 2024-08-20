@@ -1,5 +1,6 @@
 import React from "react";
-import ListDetail from "./ListDetail";
+import ArrayObjectsDetail from "./ArrayObjectsDetail";
+import Images from "../../assets/Image.js";
 
 const items = [
   {
@@ -7,7 +8,7 @@ const items = [
     title: "Sunset at the Beach",
     description:
       "A beautiful sunset at the beach with waves crashing onto the shore.",
-    imageUrl: "https://example.com/images/sunset.jpg",
+    imageUrl: Images.image1,
     category: "Nature",
     likes: 120,
     comments: [
@@ -20,7 +21,7 @@ const items = [
     title: "Mountain Hike",
     description:
       "A challenging hike up the Rocky Mountains with breathtaking views.",
-    imageUrl: "https://example.com/images/mountain.jpg",
+    imageUrl: Images.profilePic,
     category: "Adventure",
     likes: 200,
     comments: [
@@ -33,7 +34,7 @@ const items = [
     title: "City Skyline",
     description:
       "The skyline of a bustling city at night with skyscrapers illuminated.",
-    imageUrl: "https://example.com/images/skyline.jpg",
+    imageUrl: Images.image2,
     category: "Urban",
     likes: 150,
     comments: [
@@ -46,7 +47,7 @@ const items = [
     title: "Forest Path",
     description:
       "A serene path through a dense forest with sunlight filtering through the trees.",
-    imageUrl: "https://example.com/images/forest.jpg",
+    imageUrl: Images.profilePic2,
     category: "Nature",
     likes: 180,
     comments: [
@@ -58,7 +59,7 @@ const items = [
     id: 5,
     title: "Desert Dunes",
     description: "Expansive sand dunes under a clear blue sky in the desert.",
-    imageUrl: "https://example.com/images/desert.jpg",
+    imageUrl: Images.image3,
     category: "Adventure",
     likes: 130,
     comments: [
@@ -68,14 +69,15 @@ const items = [
   },
 ];
 
-function ListArrays() {
+function ArrayObjectMapping() {
   return (
-    <div>
+    <div className="container mx-auto p-4 grid grid-cols-2 space-x-6 items-center justify-center">
       {items.map((item) => (
-        <ListDetail key={item.id} item={item} />
+        // Mapping each item to the ArrayObjectsDetail component
+        <ArrayObjectsDetail key={item.id} item={item} />
       ))}
     </div>
   );
 }
 
-export default ListArrays;
+export default ArrayObjectMapping;
