@@ -48,7 +48,7 @@ const Categories = () => {
               />
               <div className="p-4">
                 {/* Display category name */}
-                {isMobile || isTablet ? (
+                {isMobile || isDesktop ? (
                   <h2 className="text-2xl text-red-500 font-bold mb-2">
                     {category.strCategory}
                   </h2>
