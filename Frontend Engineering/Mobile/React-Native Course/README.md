@@ -67,6 +67,7 @@ Expo is a framework and platform for universal React applications. It provides a
    - Initialize a new project by running:
      ```bash
      expo init MyNewProject
+     expo create-expo-app --template
      ```
    - Follow the prompts to choose a template.
 
