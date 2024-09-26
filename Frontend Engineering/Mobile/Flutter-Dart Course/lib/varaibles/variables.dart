@@ -26,7 +26,7 @@ double doubleNumber = 3.14;
  * 2. "dynamic" declaration: Holds different data types during runtime.
  */
 var nonMutableVar = "This is mutable";
-// nonMutableVar = "The value can't be changed"; // Error: value can't be reassigned a new type
+// nonMutableVar = "The value can't be changed to another datatype"; // Error: value can't be reassigned a new type
 
 dynamic data = "This can be changed during runtime";
 // data = 750000;  // It can hold a different data type later
@@ -34,8 +34,7 @@ dynamic data = "This can be changed during runtime";
 // ======================= Immutable Declarations ======================= //
 // "final" can be assigned a value at runtime, while "const" must be assigned at compile-time.
 final String constantVariable = "This cannot be changed";
-const String constantVariable =
-    "800000"; // Error: the variable can't be reassigned
+// const String constantVariable ="800000"; // Error: the variable can't be reassigned
 
 // ========================== Type Inference ========================== //
 // Dart automatically infers a datatype based on the value passed.
@@ -60,7 +59,7 @@ void main() {
   int quantity = 4;
 
   int totalPrice = price * quantity;
-  int stockAvailable = 10;
+  // int stockAvailable = 10;
 
   print("Product: $productName");
   print("Price: $price");
