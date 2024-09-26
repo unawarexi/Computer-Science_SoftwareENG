@@ -74,3 +74,30 @@ A while loop runs as long as a specified condition is true.
 
 - **do-while Loop**
 Similar to the while loop, but it guarantees that the code block will execute at least once because the condition is evaluated after the loop.
+
+
+## Break and Continue
+
+- **break**
+The break statement is used to exit a loop or switch statement prematurely.
+
+```dart
+for (int i = 0; i < 5; i++) {
+  if (i == 3) {
+    break;  // Loop terminates when i equals 3
+  }
+  print(i);
+}
+```
+
+- **continue**
+The continue statement skips the current iteration of a loop and proceeds with the next iteration.
+
+```dart
+for (int i = 0; i < 5; i++) {
+  if (i == 3) {
+    continue;  // Skips printing when i equals 3
+  }
+  print(i);
+}
+```
