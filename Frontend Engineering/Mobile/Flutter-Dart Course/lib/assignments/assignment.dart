@@ -1,7 +1,4 @@
-void userCheck() {
-  String userName = "Rejoice";
-  int userAge = 15;
-
+void userCheck([String userName = "Rejoice", int userAge = 12]) {
   int ageRequired = 18;
 
   if (userAge >= ageRequired) {
@@ -12,5 +9,6 @@ void userCheck() {
 }
 
 void main() {
-  userCheck(); // Call the function to test it
+  userCheck();
+  userCheck("John", 20);
 }
