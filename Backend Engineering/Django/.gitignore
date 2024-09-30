@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+__pycache__/
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# macOS specific files
+.DS_Store
+
+# Database files
+*.sqlite3
+
+# Local development environment settings
+.env
+*.local
+
+# Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Static files (can be generated on the server)
+staticfiles/
+static/
+
+# Media files
+media/
+
+# Logs
+*.log
+*.out
+*.err
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+*.py,cover
+
+# Unit test / coverage results
+.tox/
+.nox/
+.pytest_cache/
+coverage.xml
+
+# IDE and Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache files
+*.cache
+*.mo
+*.pot
+
+# Build files
+build/
+dist/
+pip-wheel-metadata/
+
+# Python egg files
+*.egg
+*.egg-info/
+.eggs/
+
+# Heroku
+.heroku/
+
+# Node modules if you have frontend dependencies (for example, using React with Django)
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp
