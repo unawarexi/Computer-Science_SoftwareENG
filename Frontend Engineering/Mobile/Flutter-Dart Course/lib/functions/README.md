@@ -230,12 +230,12 @@ void main() {
 ```
 
 ## Best Practices
-**Use Descriptive Names**: Make sure function names are descriptive and reflect their behavior.
-**Limit Function Size**: Functions should do one thing and do it well. Large functions should be split into smaller, more manageable ones.
-**Handle Edge Cases:** Ensure that functions handle null values, empty inputs, and other edge cases.
-**Use Named Parameters for Clarity**: Especially for functions with many parameters, use named parameters to make your code more readable.
-**Prefer Arrow Functions for Single-Line Logic**: Arrow functions can make the code more concise.
-**Document Functions**: Always add comments or documentation for complex logic.
+- **Use Descriptive Names**: Make sure function names are descriptive and reflect their behavior.
+- **Limit Function Size**: Functions should do one thing and do it well. Large functions should be split into smaller, more manageable ones.
+- **Handle Edge Cases:** Ensure that functions handle null values, empty inputs, and other edge cases.
+- **Use Named Parameters for Clarity**: Especially for functions with many parameters, use named parameters to make your code more readable.
+- **Prefer Arrow Functions for Single-Line Logic**: Arrow functions can make the code more concise.
+- **Document Functions**: Always add comments or documentation for complex logic.
 
 # Conclusion
 Functions are the core building blocks of any Dart application. Understanding how to use them efficiently helps in writing better, more maintainable, and reusable code. This guide covers all the key aspects, from basic syntax to advanced topics like higher-order functions and closures.
