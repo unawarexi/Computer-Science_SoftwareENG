@@ -23,7 +23,7 @@ while (addNumbers <= 20) {
 
 console.log("Sum of numbers from 0 to 20 is:", sum);
 
-//==================== checking for odd numbers between 0 to 100
+// //==================== checking for odd numbers between 0 to 100
 for (let oddNumbers = 0; oddNumbers <= 100; oddNumbers++) {
   oddNumbers % 2 != 0
     ? console.log(`this is an odd number ${oddNumbers}`)
