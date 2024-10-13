@@ -7,3 +7,12 @@
 
 console.log("Hello, Node.js!");
 //Run the script in your terminal:
+
+
+/** ============== require and exports
+ *  use the "require" method to call modules in your file
+ */
+
+const sum = require("./modules/moduleExports"); // import from modeuleExports
+const totalNumber = sum(3, 2);
+console.log(totalNumber)
