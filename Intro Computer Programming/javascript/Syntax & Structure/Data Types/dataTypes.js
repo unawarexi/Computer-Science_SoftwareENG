@@ -1,73 +1,73 @@
-// primitive datatypes
+// primitive data types
 
 /*
-1 strings === enclosed in a semicolon;
-2 boolen === true / false statements
-3 number === intergers
-4 bigInt === used to handle very big number values, 
-             add "n" to the end of the vals to turn into bigInt
-5 null === has a value but a value of NOTHING
-6 Symbol
-7 undefined === this is when ypu haven't assinged any val
-                to the var but you've deeclared it
+1. String: Enclosed in quotes, used for text.
+2. Boolean: Represents true/false values.
+3. Number: Represents integers and floating-point numbers.
+4. BigInt: Used to handle very large integers; append "n" to a number to convert it to BigInt.
+5. Null: Represents a variable with a value of nothing.
+6. Symbol: A unique and immutable primitive value, often used as object property keys.
+7. Undefined: Indicates a variable that has been declared but not assigned a value.
 
-note : use "typeof" to known thr type of variable
-
+Note: Use "typeof" to determine the type of a variable.
 */
 
-// non - primitive
+// non-primitive data types
 
 /*
-1 they are simply objects
-   * arrays
-      1 a var with a value of diff. primitive dataypes
-      2 use [] to write array
-      3 use varName and index to access values in the array
+Non-primitive types are objects, which can be further categorized as follows:
 
-   * functions
-      1 use "function" then fn_name() to start
-      {
-        your code and logic comes here
-      }
-      2 invoke your fn_name outside the fn block of code
+1. Arrays:
+   * A collection of values, which can be of different primitive types.
+   * Declared using square brackets [].
+   * Accessed using the variable name followed by an index.
 
-   * objects
-      1. var = {
-            key: value
-        }               this is how to write and object
-      2. "obj_name.key" thats how you get the vals inside and object\0 
-      3. it's just like arrays but holds more values and uses {} not []
+2. Functions:
+   * Declared using the "function" keyword, followed by a function name and parentheses.
+   * The function body contains the code to execute.
+   * Invoked by calling the function name outside its declaration.
+
+3. Objects:
+   * Declared using curly braces {} to define key-value pairs.
+   * Accessed using dot notation (obj_name.key) or bracket notation (obj_name['key']).
+   * Objects can hold multiple values and types.
 */
 
-let boy = "andrew" //string
-let age = 15 //number;
-let my; // undefined
-let cash = 8874348794747834n; // bigInt
-let sis = null // null
+// Example usage of primitive data types
+let boy = "andrew"; // String
+let age = 15; // Number
+let my; // Undefined
+let cash = 8874348794747834n; // BigInt
+let sis = null; // Null
 
-let me = "big";  
-console.log(me == "big" ); // boolen returns true or false
+// Boolean check
+let me = "big";
+console.log(me == "big"); // Boolean returns true or false
 
+// Example usage of non-primitive data types
 
-let person = ['andrew', '15', true, 7, null ] // this is an array
-console.log(person[1]); // use indexing to access values
+// Array example
+let person = ["andrew", "15", true, 7, null]; // This is an array
+console.log(person[1]); // Accessing the second element using indexing
 
-function infor(){ // this is a function
-    console.log(`information is life`);
-    console.log(`${boy} is ${age}`);
+// Function example
+function information() {
+  // This is a function
+  console.log(`information is life`);
+  console.log(`${boy} is ${age}`);
+}
 
+information(); // Invoking the function
+
+// Object example
+let individual = {
+  names: "andrew", // Key-value pair
+  age: 15,
+  height: "6ft", // Properties separated by commas
+  netWorth: "$6000000", // Contains different data types
+  complexion: "dark",
+  hair: "type4b",
+  chubby: true,
 };
 
-infor(); // this is calling function or invoking
-
-let individual = {
- /* names: this is a key */ 
-    names: "andrew",
-    age: 15,
-    height: "6ft",               // use , to seperate
-    netWorth: "$6000000",        // contains diff datatypes, 
-    complexion: "dark",
-    hair: "type4b",
-    chubby: true,
-}; // this is an object
-console.log(individual.netWorth); // this how to access object values
+console.log(individual.netWorth); // Accessing the value of the 'netWorth' property
