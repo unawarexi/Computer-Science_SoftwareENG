@@ -1,153 +1,125 @@
-/** FUNCTIONS
- *  functions can be stored in a var, 
- *  can contain values by decelaring vars in them
- *  they can be created in literals
- * whatever an object datatype does a function can
- *  reusable block of code
- *  any var in the fn is a local var but outside is global
+// functions.js
+
+/**
+ * FUNCTIONS
+ * Functions are reusable blocks of code that can be stored in a variable,
+ * contain local variables, and are created using different methods.
  * 
- *  NOTE : the diff btw and object and a function is that we can invoke a function
- *         also remember a function is also an object datatype (non - primitive);
- *         you can call functions dynamically using events.
+ * Key Points:
+ * 1. Functions can be treated like objects (non-primitive data types).
+ * 2. Variables declared within a function are local, while those outside are global.
  * 
- * =============== creating a function
- *  function declaration ====== "function my_function()"
- *  arrow functions ======= es6 update
- *  function constructors
- *  generator functions ========== can be exited and re-entered
+ * NOTE: The difference between an object and a function is that functions can be invoked.
+ * Functions can be called dynamically using events.
  * 
- *  NOTE : THERE'S AN ANONYMOUS FUNCTION; meaning function without a name
- *         used mostly during addeventlisterner and handling dom
- *  
+ * Types of Functions:
+ * 1. Function Declaration: e.g., function my_function() { ... }
+ * 2. Function Expression: e.g., let myFunc = function() { ... }
+ * 3. Arrow Functions: e.g., const myFunc = () => { ... }
+ * 4. Function Constructors: e.g., new Function('...') { ... }
+ * 5. Generator Functions: Functions that can be exited and re-entered.
+ * 6. Anonymous Functions: Functions without names, commonly used in event listeners.
  */
 
- function my_function(){ // creating function by declaring
-    console.log(`Andrew is a billionaire`)
+// Function Declaration
+function my_function() { // Creating a function by declaration
+   console.log(`Andrew is a billionaire`);
 
-    let andrew = 'male';   // local variable
-    let billion = 20000000000
-    console.log(`andrew ${andrew} is worth $${billion}`)
-
- }
-
- my_function(); // invoking / calling function the " () " is important
-
-
-
-//  let btn = document.querySelector('.btn')
-
-//  btn.addEventListener("click", function () { //anonymous fun...
-//     console.log(`sonic`);
-//  });
-
-
- /*================================================================== FUNCTION EXPRESSION *
-  * they're functions
-  * created inside an expression or inside another syntax
-  *  assining fns to vars is anonymous fns and the var_name is what we call 
-  *             var_name(); //since fn is anonymous
-  * 
-  * you can use a new var to invoke the exp fn
-  * 
-  *  NOTE: the diffference btw fn exp... and decla... is 
-  *        1 fnname is compulsory in declaration but not in expressions
-  *        2 fn_decl... can be invoke before writing the codes but exp_fns can't
-  */
-
-  let ruler = 'jennifer'; // global variable
-
-     let brother = function (){
-           console.log(`this would be bad if ${ruler} rules`);
-     };
-
-     let chairman = brother; // assing to new var_name to invoke same funt...
-    
-    //  brother(); old var name
-   chairman(); // invoking new var_name
-
-   
-
-   /*================================================================================= ARROW FUNCTIONS*
-    *  They are always anonymous
-    * provides a shorter way to write "FUNCTION EXPRESSIONS"
-    * from the es6 update 2015
-    
-
-    * SYNTAX
-    *  var_name = (multi-params) => {}  
-    *  for single param no need for the (), just write the param name there then arrow
-    *  for single line statement remove the {} and just put it in same line
-    *  do not use to access object props stick to regulalr exp functions
-    * use it when it's inside an exp_fn in an object 
-    *    // it ppoints to the global window object not main object
-    * used inside an inbuilt method too
-    * 
-    * 
-    * just take it as a weaker function used for specific task not major
-    */
-
-   const babies = () => { //normal arrow function
-      console.log(`emmanuel`)
-   }
-
-   babies(); // shorter method below
-
-
-   const baddie = () => "Amber" ;// shorter normal arrow fun...
-
-   console.log(baddie()) 
-
-
-
-   const baby = (a, b) => { //no need to write out "function"
-      console.log(a + b)
-   }
-
-   baby(2, 3);
-
-
-
-   const bad = FirstNames => { // single param "FIRSTNAMES" remove brackets
-      console.log(`his Firstname is ${FirstNames}`)
-   }
-
-   bad("FredSwaniker");
-
-
-
-
-   const musicians = {
-      artist : "Kanye-West",
-      genre : "Hip-hop",
-      kids : "5-kids",
-      height : "6ft",
-      Moreinfo() {
-         console.log(`${this.artist} is having quality time with his ${this.kids}`)
-
-
-      },
-
-      // passinfo: () => {
-      //    console.log(`${this.genre} is great cuz ${this.height} man`)
-      // } 
-
-      // this would not work use a normaal function exp.. for objects
-   }
-musicians.Moreinfo();
-// musicians.passinfo();
-
-
-  
-const games = {
-   title : "sonic hedge-Hog",
-   related : ['born of hedge', 'sonic 3', 'sonic & knuckles'],
-   year : 1991,
-   showrelated : function () { // main function
-      //method "foreach" looping inside "related" property
-      this.related.forEach((relatedgames) => { //arrow function inside a method
-         console.log(`the return of ${this.title} - ${relatedgames}`)
-      }
-   )}
+   let andrew = 'male';   // Local variable
+   let billion = 20000000000;
+   console.log(`Andrew ${andrew} is worth $${billion}`);
 }
 
-games.showrelated();
+my_function(); // Invoking the function (the "()" is important)
+
+/* 
+* Example of an anonymous function used with an event listener:
+* Uncomment to use in a browser environment with a button element.
+*/
+
+// let btn = document.querySelector('.btn');
+// btn.addEventListener("click", function () { // Anonymous function
+//     console.log(`sonic`);
+// });
+
+/*============================================================== FUNCTION EXPRESSION
+* Function expressions are functions defined inside expressions or other syntax.
+* Assigning functions to variables creates anonymous functions.
+* 
+* NOTE: 
+* 1. Function declarations must have a name, while function expressions do not.
+* 2. Function declarations can be invoked before they are defined, but function expressions cannot.
+*/
+
+let ruler = 'Jennifer'; // Global variable
+
+let brother = function () { // Function expression
+   console.log(`This would be bad if ${ruler} rules.`);
+};
+
+let chairman = brother; // Assign to a new variable to invoke the same function
+
+// brother(); // Old variable name
+chairman(); // Invoking new variable name
+
+/*================================================================== ARROW FUNCTIONS
+* Arrow functions provide a shorter syntax for writing function expressions.
+* Introduced in ES6 (2015).
+* 
+* SYNTAX:
+* var_name = (multi-params) => { ... }
+* For single parameter, omit the parentheses: param => { ... }
+* For single-line statements, omit the braces and use the same line.
+* 
+* NOTE: Do not use arrow functions to access object properties as they point 
+* to the global context instead of the main object.
+*/
+
+const babies = () => { // Normal arrow function
+   console.log(`Emmanuel`);
+};
+
+babies(); // Invoking the arrow function
+
+const baddie = () => "Amber"; // Shorter arrow function
+console.log(baddie());
+
+const baby = (a, b) => { // Arrow function with multiple parameters
+   console.log(a + b);
+};
+
+baby(2, 3); // Output: 5
+
+const bad = FirstNames => { // Arrow function with a single parameter
+   console.log(`His Firstname is ${FirstNames}`);
+};
+
+bad("Fred Swaniker"); // Output: "His Firstname is Fred Swaniker"
+
+// Using arrow functions within an object method
+const musicians = {
+   artist: "Kanye West",
+   genre: "Hip-hop",
+   kids: "5 kids",
+   height: "6ft",
+   Moreinfo() {
+       console.log(`${this.artist} is having quality time with his ${this.kids}`);
+   }
+};
+
+musicians.Moreinfo(); // Output: "Kanye West is having quality time with his 5 kids."
+
+// Example of using an arrow function inside a method
+const games = {
+   title: "Sonic Hedgehog",
+   related: ['Born of Hedge', 'Sonic 3', 'Sonic & Knuckles'],
+   year: 1991,
+   showrelated: function () { // Main function
+       // Method "forEach" looping inside "related" property
+       this.related.forEach((relatedgames) => { // Arrow function inside a method
+           console.log(`The return of ${this.title} - ${relatedgames}`);
+       });
+   }
+};
+
+games.showrelated(); // Output: "The return of Sonic Hedgehog - Born of Hedge", etc.
