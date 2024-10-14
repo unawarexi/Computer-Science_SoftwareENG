@@ -39,3 +39,20 @@ console.log(object1.name); // Prints "Clark Kent"
 let object2 = {
     name: "Clark Kent"
 };  // Throws an error, or breaks the reference in non-strict mode
+
+
+
+
+// Defining an object that we want to export
+const superhero = {
+    name: "Bruce Wayne",
+    alias: "Batman"
+};
+
+// Exporting the object using module.exports
+module.exports = superhero;
+
+
+// Defining properties on exports (a reference to module.exports)
+exports.name = "Clark Kent";
+exports.alias = "Superman";

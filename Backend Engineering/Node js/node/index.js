@@ -16,3 +16,13 @@ console.log("Hello, Node.js!");
 const sum = require("./modules/moduleExports"); // import from modeuleExports
 const totalNumber = sum(3, 2);
 console.log(totalNumber)
+
+
+
+
+
+// =============== export differences Importing the exported module
+const hero = require('./moduleA');
+
+console.log(hero.name);  // Prints: Bruce Wayne
+console.log(hero.alias); // Prints: Batman
