@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
 
+  void firstScreen(BuildContext context) {
+    Navigator.pushNamed(context, "/home");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Onboarding'),
-        leading: BackButton(),
+        leading: const BackButton(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -28,9 +32,13 @@ class Onboarding extends StatelessWidget {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
+                firstScreen(context);
                 // Navigate to next screen or action
               },
-              child: const Text('Get Started'),
+              child: const Text(
+                'Get Started',
+                style: TextStyle(color: Colors.deepOrange),
+              ),
             ),
           ],
         ),
