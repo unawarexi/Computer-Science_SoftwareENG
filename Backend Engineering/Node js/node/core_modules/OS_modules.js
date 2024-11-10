@@ -2,6 +2,21 @@
  * The 'os' module:
  * The 'os' module in Node.js provides methods to interact with the operating system and retrieve useful system-related information.
  * This includes details about the platform, memory, CPUs, network interfaces, uptime, and more.
+
+ * - os.arch(): Retrieves the CPU architecture of the operating system (e.g., 'x64' for 64-bit).
+ * - os.platform(): Returns the operating system platform (e.g., 'win32', 'linux', 'darwin').
+ * - os.hostname(): Returns the name of the machine (hostname).
+ * - os.totalmem() and os.freemem(): Provide the total and free memory in bytes, respectively.
+ * - os.uptime(): Returns the system uptime (how long the OS has been running since last reboot).
+ * - os.userInfo(): Provides details about the current logged-in user.
+ * - os.cpus(): Returns an array of objects representing each CPU/core with details like speed and model.
+ * - os.networkInterfaces(): Retrieves network interfaces (IP addresses, etc.).
+ * - os.release(): Returns the version of the operating system.
+ * - os.tmpdir(): Returns the path to the system's temporary files directory.
+ * - os.endianness(): Returns the CPU byte order (endianness).
+ * - os.homedir(): Retrieves the path to the current user's home directory.
+ * - os.loadavg(): Returns system load averages (Unix systems only).
+ * - os.type(): Returns the name of the operating system.
  */
 
 const os = require('os');
