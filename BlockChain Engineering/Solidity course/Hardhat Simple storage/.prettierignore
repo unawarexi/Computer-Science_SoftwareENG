@@ -1,0 +1,19 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore compiled contracts and artifacts
+artifacts/
+cache/
+
+# Ignore Hardhat configuration files
+hardhat.config.js
+hardhat.config.ts
+
+# Ignore test files (if you don't want them formatted)
+test/
+
+# Ignore scripts folder (if you don't want to format scripts)
+scripts/
+
+# Ignore Solidity files (if you don't want them formatted)
+**/*.sol

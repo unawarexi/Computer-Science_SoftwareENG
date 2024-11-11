@@ -16,3 +16,9 @@ This table provides a summary of essential commands for blockchain development w
 - **Additional Tools:** Other tools, like OpenZeppelin and Truffle, that are useful for development.
 
 ## check the pdf or docx file for each command
+
+
+## tools and sites
+- **solidity** :  for wrting the smart contract on ethereum blockchain
+- **web3 js** : for interacting with the contract and deploying it
+- **hardhart** :  for compilation of the contract of mainnets
