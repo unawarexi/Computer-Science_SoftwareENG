@@ -4,8 +4,9 @@ const cors = require('cors');
 const {connectDB}  = require('./config/dbconfig');
 
 //Routes importing
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes/userRoutes');
+const productRoutes = require('./routes/productRoutes/productRoutes')
+const memberRoutes = require("./routes/memberRoutes/memberRoutes")
 
 const app = express();
 
@@ -19,8 +20,9 @@ const PORT = process.env.PORT ;
 
 
 //Working with routes
-app.use("/api/users", userRoutes);
-app.use("/api/products", productRoutes)
+app.use("/api", userRoutes);
+app.use("/api", productRoutes)
+app.use("/api", memberRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server started at port ${PORT}`);
