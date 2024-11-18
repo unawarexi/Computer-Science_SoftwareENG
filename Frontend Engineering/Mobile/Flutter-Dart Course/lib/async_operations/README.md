@@ -1,5 +1,5 @@
 ## Exception Handling
-In Dart, exceptions are used to handle runtime errors in a safe manner.
+In Dart, exceptions are used to `handle runtime` or `compile time errors` in a safe manner.
 
 - **try-catch**
 Use try and catch to handle exceptions that might occur in your code.

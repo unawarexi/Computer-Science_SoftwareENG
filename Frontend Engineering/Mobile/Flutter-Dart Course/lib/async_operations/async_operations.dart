@@ -15,7 +15,7 @@ Future<void> fetchData() async {
   print('Fetching data...');
 
   // Pauses for 2 seconds (simulating an asynchronous task)
-  await Future.delayed(Duration(seconds: 2));
+  await Future.delayed(const Duration(seconds: 2));
 
   // Prints the message after the delay (operation completes)
   print('Data fetched.');
@@ -24,7 +24,7 @@ Future<void> fetchData() async {
 // Function returning a Future with a delayed result
 Future<int> fetchNumber() {
   // Returns a Future that completes with the value 42 after a 2-second delay
-  return Future.delayed(Duration(seconds: 2), () => 42);
+  return Future.delayed(const Duration(seconds: 2), () => 42);
 }
 
 /*
