@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_course/flutter/layouts/first_screen.dart';
-import 'package:flutter_course/flutter/widgets/onboarding.dart';
+import 'package:flutter_course/concepts/widgets/onboarding.dart';
+import 'package:flutter_course/concepts/flutter/layouts/first_screen.dart';
+import 'package:flutter_course/pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                   builder: (context) => const Onboarding());
             case "/home":
-              return MaterialPageRoute(builder: (context) => FirstScreen());
+              return MaterialPageRoute(
+                  builder: (context) => const HomeScreen());
             default:
               return MaterialPageRoute(
                   builder: (context) => const Onboarding());
