@@ -66,14 +66,14 @@ class _RouteScreenState extends State<RouteScreen> {
     }
   }
 
-  // AIzaSyBoWy2-vzkQzOw9FrCKUyfxWpa5_dsPi10
+
 //------------------------------------------- Initialize GoogleMapsPlaces
   @override
   void initState() {
     super.initState();
     _places = GoogleMapsPlaces(
-        apiKey:
-            'AIzaSyBoWy2-vzkQzOw9FrCKUyfxWpa5_dsPi10'); // Replace with your API key
+        apiKey: //api key
+            ); // Replace with your API key
   }
 
   //------------------------------------------- Fetch autocomplete predictions
