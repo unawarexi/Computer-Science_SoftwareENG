@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
 
-  void firstScreen(BuildContext context) {
-    Navigator.pushNamed(context, "/home");
-  }
+//------------- using name routes to navigate to the next screen
 
   @override
   Widget build(BuildContext context) {
@@ -30,18 +28,41 @@ class Onboarding extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () {
-                firstScreen(context);
-                // Navigate to next screen or action
-              },
-              child: const Text(
-                'Get Started',
-                style: TextStyle(color: Colors.deepOrange),
-              ),
+            // Using the DynamicButton for the first action
+            DynamicButton(
+              onPressed: () => Navigator.pushNamed(context, "/Home"),
+              label: 'See projects',
+            ),
+            const SizedBox(height: 20),
+            // Using the DynamicButton for another action
+            DynamicButton(
+              onPressed: () => Navigator.pushNamed(context, "/concepts"),
+              label: 'learn concepts',
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class DynamicButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String label;
+
+  const DynamicButton({
+    super.key,
+    required this.onPressed,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Text(
+        label,
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
