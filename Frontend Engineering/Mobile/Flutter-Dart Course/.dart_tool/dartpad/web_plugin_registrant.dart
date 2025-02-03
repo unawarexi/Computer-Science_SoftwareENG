@@ -8,9 +8,12 @@
 
 import 'package:audio_session/audio_session_web.dart';
 import 'package:audioplayers_web/audioplayers_web.dart';
+import 'package:cloud_firestore_web/cloud_firestore_web.dart';
 import 'package:connectivity_plus/src/connectivity_plus_web.dart';
 import 'package:device_info_plus/src/device_info_plus_web.dart';
 import 'package:file_picker/_internal/file_picker_web.dart';
+import 'package:firebase_auth_web/firebase_auth_web.dart';
+import 'package:firebase_core_web/firebase_core_web.dart';
 import 'package:flutter_tts/flutter_tts_web.dart';
 import 'package:geolocator_web/geolocator_web.dart';
 import 'package:google_maps_flutter_web/google_maps_flutter_web.dart';
@@ -29,9 +32,12 @@ void registerPlugins([final Registrar? pluginRegistrar]) {
   final Registrar registrar = pluginRegistrar ?? webPluginRegistrar;
   AudioSessionWeb.registerWith(registrar);
   AudioplayersPlugin.registerWith(registrar);
+  FirebaseFirestoreWeb.registerWith(registrar);
   ConnectivityPlusWebPlugin.registerWith(registrar);
   DeviceInfoPlusWebPlugin.registerWith(registrar);
   FilePickerWeb.registerWith(registrar);
+  FirebaseAuthWeb.registerWith(registrar);
+  FirebaseCoreWeb.registerWith(registrar);
   FlutterTtsPlugin.registerWith(registrar);
   GeolocatorPlugin.registerWith(registrar);
   GoogleMapsPlugin.registerWith(registrar);
