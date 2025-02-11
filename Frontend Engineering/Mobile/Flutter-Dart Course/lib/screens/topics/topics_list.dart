@@ -16,7 +16,7 @@ const List<String> topics = [
   'Multithreading & Isolates',
   'Camera Integration',
   'Media Handling (Audio/Video)',
-  'Storage (Shared Preferences & Secure Storage)',
+  '(Shared Preferences & Secure Storage)',
   'Deep Linking',
   'Internationalization & Localization',
   'Device Sensors (Accelerometer, Gyroscope)',
