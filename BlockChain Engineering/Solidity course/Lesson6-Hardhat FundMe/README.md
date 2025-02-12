@@ -74,12 +74,12 @@ function transfer(address _to, uint256 _value) public {}
 NatSpec is the documentation standard for Ethereum smart contracts. It helps generate structured comments for contracts, functions, and parameters, enhancing readability and developer collaboration.
 
 NatSpec Comment Annotations:
-**@title**: The title of the contract.
-**@dev**: Notes for developers about the contract.
-**@param**: Description of a function parameter.
-**@return**: Describes the return value.
-**@notice**: Information for end-users of the contract.
-**@custom:**: Custom tags for additional documentation.
+- **@title**: The title of the contract.
+- **@dev**: Notes for developers about the contract.
+- **@param**: Description of a function parameter.
+- **@return**: Describes the return value.
+- **@notice**: Information for end-users of the contract.
+- **@custom:**: Custom tags for additional documentation.
 
 
 
