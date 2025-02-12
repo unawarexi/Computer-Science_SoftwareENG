@@ -1,7 +1,7 @@
 
 const { network } = require("hardhat")
-const { networkConfig, developmentChains } = require("../helper-hardhat-config")
-const { verify } = require("../utils/verify")
+const { networkConfig, developmentChains } = require("../helper-hardhat-config.js")
+const { verify } = require("../utils/Verify.js")
 require("dotenv").config()
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
