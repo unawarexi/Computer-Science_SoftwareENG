@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.button__edit {
+  padding: 1rem 1.5rem;
+  background: #0995d6;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.error-class {
+  font-size: 10px;
+  color: red;
+  margin-top: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

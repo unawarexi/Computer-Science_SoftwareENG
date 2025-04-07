@@ -1,0 +1,25 @@
+{
+  "name": "hardhat-simple-storage",
+  "version": "1.0.0",
+  "description": "In this lesson, we'll explore how to set up a Hardhat development environment, deploy a Simple Storage contract, and verify it on Etherscan. We will also go over troubleshooting techniques and some important configurations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "hardhat-simple-storage": "file:",
+    "prettier": "^3.3.3",
+    "prettier-plugin-solidity": "^1.4.1",
+    "solc": "^0.8.28",
+    "web3": "^4.15.0"
+  }
+}
