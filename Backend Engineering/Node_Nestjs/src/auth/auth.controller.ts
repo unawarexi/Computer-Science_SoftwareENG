@@ -1,8 +1,8 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { AuthDto } from './dto';
+import { Body, Controller, Post } from "@nestjs/common";
+import { AuthService } from "./auth.service";
+import { AuthDto } from "./dto";
 
-@Controller('auth')
+@Controller("auth")
 export class AuthController {
   // This controller will handle authentication-related routes
   // For example, login, register, etc.
@@ -17,26 +17,27 @@ export class AuthController {
     // You can inject the AuthService here to use its methods
   }
 
-  @Post('login')
-  async login() {
-    return this.authService.signIn();
+  @Post("login")
+  async login(@Body() dto: AuthDto) {
+    console.log("Login request data:", dto); // Debugging log
+    const response = await this.authService.login(dto);
+    console.log("Login response data:", response); // Debugging log
+    return response;
   }
 
-  @Post('register')
+  @Post("register")
   async register(@Body() dto: AuthDto) {
-    // You can use the body to get the user data from the request
-    // For example:
-    // const { username, password } = body;
-    // return this.authService.register(username, password);
-    // Or you can use a DTO (Data Transfer Object) to validate the data
-    // For example:
-    // const registerDto = new RegisterDto();
-    console.log({ dto });
-    return this.authService.signUp();
+    console.log("Register request data:", dto); // Debugging log
+    const response = await this.authService.signUp(dto);
+    console.log("Register response data:", response); // Debugging log
+    return response;
   }
 
-  @Post('logout')
+  @Post("logout")
   async logout() {
-    return this.authService.signOut();
+    console.log("Logout request received"); // Debugging log
+    const response = await this.authService.signOut();
+    console.log("Logout response data:", response); // Debugging log
+    return response;
   }
 }
