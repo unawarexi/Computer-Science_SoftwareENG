@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  agora_rtc_engine
   audioplayers_windows
   cloud_firestore
   connectivity_plus
@@ -11,6 +12,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   flutter_tts
   flutter_volume_controller
   geolocator_windows
+  iris_method_channel
   permission_handler_windows
   zego_express_engine
   zego_zim

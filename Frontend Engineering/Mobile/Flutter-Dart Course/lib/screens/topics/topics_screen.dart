@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dart_course/apis/api_main_widget.dart';
+import 'package:flutter_dart_course/screens/RTC_communications/overview_users.dart';
 import 'topics_list.dart';
 
 class TopicsScreen extends StatelessWidget {
@@ -26,12 +28,10 @@ class TopicsScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                     ),
                     onPressed: () {
-                      // Navigate to the respective screen for the topic
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              TopicDetailScreen(topic: topics[index]),
+                          builder: (context) => _getTopicScreen(topics[index]),
                         ),
                       );
                     },
@@ -49,6 +49,20 @@ class TopicsScreen extends StatelessWidget {
     );
   }
 }
+
+Widget _getTopicScreen(String topic) {
+    switch (topic) {
+      case 'Real-Time Communication (RTC)':
+        return OverviewUsers();
+      case 'API Integration & RESTful Services':
+        return ApiMainWidget();
+      // Add more cases for other topics...
+
+      default:
+        return TopicDetailScreen(topic: topic); // fallback if screen not yet made
+    }
+  }
+
 
 // A placeholder screen for Topic details
 class TopicDetailScreen extends StatelessWidget {

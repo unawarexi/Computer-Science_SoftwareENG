@@ -4,6 +4,7 @@
   "description": "Save your time! Don't build repetetive things from scratch",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,11 +20,17 @@
   "license": "ISC",
   "dependencies": {
     "backend": "file:",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.18.2",
-    "mongoose": "^8.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.0",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.7",
+    "socket.io": "^4.8.1",
     "uuid": "^11.0.3"
   }
 }

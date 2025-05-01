@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dart_course/screens/topics/topics_screen.dart';
+import 'package:flutter_dart_course/screens/auth_screens/auth_screen.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -22,7 +23,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const TopicsScreen()),
+                  MaterialPageRoute(builder: (context) => const AuthScreen()),
                 );
               },
               child: const Text("click to view"))
