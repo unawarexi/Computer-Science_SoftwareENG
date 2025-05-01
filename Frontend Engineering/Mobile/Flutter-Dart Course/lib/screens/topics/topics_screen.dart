@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dart_course/apis/api_main_widget.dart';
 import 'package:flutter_dart_course/screens/RTC_communications/overview_users.dart';
+import 'package:flutter_dart_course/screens/security_screens/settings.dart';
 import 'topics_list.dart';
 
 class TopicsScreen extends StatelessWidget {
@@ -56,6 +57,8 @@ Widget _getTopicScreen(String topic) {
         return OverviewUsers();
       case 'API Integration & RESTful Services':
         return ApiMainWidget();
+      case 'User Security':
+        return SettingsScreen(); // Assuming you have a screen for User Security
       // Add more cases for other topics...
 
       default:

@@ -9,10 +9,12 @@ list(APPEND FLUTTER_PLUGIN_LIST
   connectivity_plus
   firebase_auth
   firebase_core
+  flutter_secure_storage_windows
   flutter_tts
   flutter_volume_controller
   geolocator_windows
   iris_method_channel
+  local_auth_windows
   permission_handler_windows
   zego_express_engine
   zego_zim
