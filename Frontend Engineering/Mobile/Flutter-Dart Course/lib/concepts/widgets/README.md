@@ -4,72 +4,14 @@ Widgets are the fundamental building blocks of a Flutter application. Everything
 
 ## What is a Widget?
 
-In Flutter, **widgets** describe the structure and behavior of the app’s user interface. Each widget is immutable, meaning that after it’s built, it cannot change. However, if a widget’s state needs to change (like user interaction), a new widget is created, and the old one is replaced.
+In Flutter, **widgets** describe the structure and behavior of the app's user interface. Each widget is immutable, meaning that after it's built, it cannot change. However, if a widget's state needs to change (like user interaction), a new widget is created, and the old one is replaced.
 
 Widgets can be classified into two main types:
 
-- **Stateless Widgets**: These widgets do not maintain any internal state. Once built, they don’t change.
+- **Stateless Widgets**: These widgets do not maintain any internal state. Once built, they don't change.
 - **Stateful Widgets**: These widgets can maintain internal state that changes over time. This is ideal for dynamic content, like user input or animations.
 
----
-
-## Commonly Used Flutter Widgets
-
-### Layout Widgets
-
-These widgets help structure the UI by organizing other widgets in a particular layout.
-
-| **Widget**                | **Description**                                                                 |
-|---------------------------|---------------------------------------------------------------------------------|
-| `Column()`                | Lays out its children in a vertical array.                                       |
-| `Row()`                   | Lays out its children in a horizontal array.                                     |
-| `Container()`             | A versatile widget that can be used to contain, align, and style its children.   |
-| `Padding()`               | Adds padding around a widget.                                                   |
-| `Center()`                | Centers its child within itself.                                                |
-| `Stack()`                 | Positions its children relative to the edges of the stack or each other.         |
-| `Expanded()`              | Expands its child widget to fill the available space within a `Row` or `Column`. |
-| `Align()`                 | Aligns its child within itself based on the alignment parameter.                 |
-
-### UI Widgets
-
-These widgets are responsible for visual elements in the UI, such as buttons, text, or images.
-
-| **Widget**                | **Description**                                                                 |
-|---------------------------|---------------------------------------------------------------------------------|
-| `Text()`                  | Displays a string of text with custom styling.                                  |
-| `Image()`                 | Displays an image from the network, assets, or file system.                     |
-| `Icon()`                  | Displays a material design icon.                                                |
-| `RaisedButton()`          | A button that elevates when pressed (deprecated; use `ElevatedButton`).         |
-| `ElevatedButton()`        | A modern button that elevates when pressed.                                     |
-| `FloatingActionButton()`   | A circular button that typically floats above the content and triggers an action. |
-| `ListView()`              | A scrollable list of widgets.                                                   |
-| `GridView()`              | A scrollable grid of widgets.                                                   |
-| `Checkbox()`              | A material design checkbox.                                                     |
-| `Switch()`                | A material design switch for toggling between on and off states.                |
-
-### Interaction Widgets
-
-These widgets manage user interactions, such as gestures and touch events.
-
-| **Widget**                | **Description**                                                                 |
-|---------------------------|---------------------------------------------------------------------------------|
-| `GestureDetector()`        | Detects and responds to user gestures like taps, swipes, or long presses.       |
-| `InkWell()`               | A material design ripple effect when tapped, with built-in gesture detection.    |
-| `Form()`                  | Groups form fields and handles form submission.                                 |
-| `TextField()`             | Allows the user to input text.                                                  |
-| `Slider()`                | A material design slider for selecting a value from a range.                    |
-
-### Styling Widgets
-
-These widgets modify the visual appearance of other widgets by applying styling, such as padding, margins, or decorations.
-
-| **Widget**                | **Description**                                                                 |
-|---------------------------|---------------------------------------------------------------------------------|
-| `DecoratedBox()`           | A widget that paints a decoration onto its child, such as a background color or border. |
-| `Padding()`               | Adds padding around a widget.                                                   |
-| `SizedBox()`              | Forces a widget to have a specific width and/or height.                         |
-| `Container()`             | A versatile widget that can apply padding, margins, borders, and more.          |
-| `Transform()`             | Applies a transformation, such as scaling or rotating, to a widget.             |
+> For a comprehensive list of commonly used widgets, please refer to [Common Widgets Reference](common_widgets.md)
 
 ---
 
