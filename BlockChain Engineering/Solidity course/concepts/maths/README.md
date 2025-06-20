@@ -69,6 +69,20 @@ uint256 result = x / y; // = 3, NOT 3.333...
 
 ## 3. Overflow and Underflow
 
+**What is Overflow?**  
+An *overflow* occurs when a value exceeds the maximum value a data type can store. For example, if a `uint8` (which can store values from 0 to 255) is incremented past 255, it wraps around to 0.
+
+**What is Underflow?**  
+An *underflow* happens when a value goes below the minimum value a data type can store. For `uint8`, subtracting 1 from 0 wraps around to 255.
+
+```solidity
+uint8 a = 255;
+a += 1; // wraps to 0 (overflow)
+
+uint8 b = 0;
+b -= 1; // wraps to 255 (underflow)
+```
+
 ### Before Solidity 0.8.0
 
 Math operations were unchecked, so overflows/underflows would silently wrap around.
@@ -89,7 +103,8 @@ a += 1; // runtime error (reverts transaction)
 
 ### Unchecked Blocks (opt-out manually)
 
-You can manually disable checks for gas savings (use with caution):
+**What does `unchecked` do?**  
+The `unchecked` keyword disables overflow and underflow checks within its block, allowing arithmetic to wrap around as in older Solidity versions. This can save gas but should be used only when you are certain overflows/underflows cannot occur or are intentional.
 
 ```solidity
 unchecked {
@@ -111,7 +126,8 @@ uint256 result = 5 / 2; // = 2
 
 ### Preserving Precision
 
-To simulate decimals, multiply before dividing:
+**Why multiply before dividing?**  
+In Solidity, division between integers always truncates (removes) the decimal part, potentially losing precision. By multiplying first (using a scaling factor like `10^18`), you preserve the fractional part in the result, simulating fixed-point math.
 
 ```solidity
 uint256 result = (5 * 10**18) / 2; // = 2.5 * 10^18

@@ -84,7 +84,11 @@
 ## Basic Solidity: Resetting an Array
 
 ## Sending ETH from a Contract
-- **Transfer, Send, Call:** Different methods for sending Ether from a Solidity contract to an address.
+- **Transfer, Send, Call:**  
+  - **transfer:** Forwards a fixed 2300 gas stipend, reverts on failure. Simple and safe, but may fail if the recipient needs more gas.
+  - **send:** Also forwards 2300 gas, but returns a boolean indicating success or failure (does not revert automatically). You must handle failures manually.
+  - **call:** The recommended and most flexible way. Forwards all remaining gas by default, returns a boolean and data. Must check the return value for success and is more prone to reentrancy attacks if not used carefully.
+
 - **this keyword:** Refers to the current contract instance within Solidity code.
 
 ## Basic Solidity: Constructor
@@ -114,4 +118,54 @@
 ## Receive & Fallback Functions
 - **Fallback:** A special function in Solidity invoked when a contract receives Ether without specifying a function to call.
 - **Receive:** A new special function introduced in Solidity version 0.6.0, invoked when a contract receives Ether, replacing the fallback function.
+
+### Simple & Deep Explanation: `receive` and `fallback` Functions
+
+#### What are they?
+- **receive()** and **fallback()** are special functions in Solidity that control how your contract reacts when it receives Ether (ETH) or unknown function calls.
+
+#### When are they triggered?
+- **receive()** is called **only** when your contract receives plain ETH (no data attached).
+- **fallback()** is called when:
+  - The contract receives ETH **with data** (for example, someone tries to call a function that doesn't exist).
+  - Or, if `receive()` does not exist, any ETH sent to the contract will trigger `fallback()`.
+
+#### Why do we use them?
+- To make sure your contract can **accept ETH** sent directly (for example, from a wallet or another contract).
+- To handle **unexpected function calls** or data, so your contract doesn't just fail or lose ETH.
+- To add custom logic for receiving ETH, like logging, restricting who can send ETH, or forwarding ETH elsewhere.
+
+#### Which one should you use?
+- Use **receive()** if you want your contract to accept ETH sent with no data (most common for simple payments or donations).
+- Use **fallback()** if you want to handle:
+  - ETH sent with data (for example, by mistake or by calling a non-existent function).
+  - Any unknown function calls (for example, to log or reject them).
+
+#### Example
+
+```solidity
+// Example contract with both receive and fallback
+contract Example {
+    // Called when contract receives ETH with no data
+    receive() external payable {
+        // Accept ETH, maybe log or take action
+    }
+
+    // Called when contract receives ETH with data or unknown function call
+    fallback() external payable {
+        // Handle unexpected calls or ETH with data
+    }
+}
+```
+
+#### Summary Table
+
+| Situation                        | Function Triggered |
+|-----------------------------------|-------------------|
+| ETH sent, no data                 | receive()         |
+| ETH sent, with data               | fallback()        |
+| Unknown function called (no ETH)  | fallback()        |
+| No receive(), ETH sent, no data   | fallback()        |
+
+---
 

@@ -4,7 +4,7 @@ This document provides a comprehensive breakdown of **control flow** in Solidity
 
 ---
 
-## 📌 What is Control Flow?
+##  What is Control Flow?
 
 **Control flow** dictates the **order** in which individual statements, instructions, or function calls are executed or evaluated in a program.
 
@@ -12,14 +12,14 @@ In Solidity, control flow includes:
 
 - **Conditional Statements** (`if`, `else`)
 - **Loops** (`for`, `while`, `do...while`)
-- **Flow-Altering Keywords** (`break`, `continue`, `return`, `revert`, `require`, `assert`)
-- **Special Control Statements** (`try-catch`, `fallback`, `receive`)
+- **Flow-Altering Keywords** (`break`, `continue`, `return`)
+- **Special Control Statements** (`fallback`, `receive`)
 
 Understanding control flow is essential for writing secure, efficient, and predictable smart contracts.
 
 ---
 
-## 🔀 Conditional Statements
+## Conditional Statements
 
 Conditional statements allow your contract to make decisions based on certain conditions.
 
@@ -129,48 +129,6 @@ function get() public pure returns (uint) {
 }
 ```
 
-### `revert()`
-
-Stops execution and reverts all state changes, optionally with an error message.
-
-```solidity
-revert("Something went wrong");
-```
-
-### `require()`
-
-Checks a condition and reverts if false. Commonly used for input validation and access control.
-
-```solidity
-require(msg.sender == owner, "Not authorized");
-```
-
-### `assert()`
-
-Used to check for conditions that should **never** be false (internal errors or invariants). If the condition fails, all gas is consumed.
-
-```solidity
-assert(balance >= 0); // Should never fail
-```
-
----
-
-## 🛠️ `try-catch` for External Calls
-
-Solidity (since v0.6.0) supports `try-catch` for error handling in **external calls** or contract creation.
-
-```solidity
-try otherContract.someFunction() returns (uint value) {
-    // success logic
-} catch Error(string memory reason) {
-    // catch require/revert errors (with error message)
-} catch (bytes memory lowLevelData) {
-    // catch assert/panic errors (no error message)
-}
-```
-
-- Use `try-catch` to handle failures gracefully when calling other contracts.
-
 ---
 
 ## ⚙️ Special Functions in Control Flow
@@ -228,7 +186,6 @@ for (uint i = 0; i < myArray.length && i < 10; i++) {
 ## 🧠 Best Practices
 
 - ✅ **Always bound loops** (e.g., `i < 10`).
-- ✅ **Use `require()` for input checks** and access control.
 - ✅ **Avoid heavy computation in loops**.
 - ⚠️ **Don’t use loops to write to large storage arrays**.
 - ⚠️ **Prefer off-chain computation** for large or complex operations.
@@ -242,8 +199,6 @@ for (uint i = 0; i < myArray.length && i < 10; i++) {
 | `if`, `else`    | Conditional logic                    |
 | `for`, `while`, `do...while` | Looping constructs      |
 | `break`, `continue` | Managing loop execution          |
-| `require()`, `revert()`, `assert()` | Error handling & validation |
-| `try-catch`     | External call exception handling     |
 | `return`        | Exit a function with a value         |
 | `fallback`, `receive` | Handle unexpected or Ether calls |
 
@@ -251,7 +206,6 @@ for (uint i = 0; i < myArray.length && i < 10; i++) {
 
 ## 🧾 Version Compatibility Notes
 
-- `try-catch`: Introduced in Solidity 0.6.0
 - `receive()`: Introduced in Solidity 0.6.0
 - **Avoid deprecated constructs** (e.g., `throw`) in modern Solidity
 
