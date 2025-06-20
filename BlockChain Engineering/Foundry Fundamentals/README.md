@@ -134,6 +134,38 @@ This gives you test accounts, a running RPC, and live logging.
 
 ---
 
+## Deploying Smart Contracts
+
+You can deploy your compiled smart contracts using `forge create`.  
+First, make sure your contract is compiled (`forge build`).
+
+**Basic usage:**
+
+```bash
+forge create src/YourContract.sol:YourContract --rpc-url <RPC_URL> --interactive
+```
+
+- Replace `src/YourContract.sol:YourContract` with your contract's path and name.
+- `--rpc-url <RPC_URL>`: The Ethereum node endpoint (e.g., from Anvil, Infura, or Alchemy).
+- `--interactive`: Prompts you to enter your private key securely.
+
+**Alternatively, you can use a private key directly:**
+
+```bash
+forge create src/YourContract.sol:YourContract --rpc-url <RPC_URL> --private-key <YOUR_PRIVATE_KEY>
+```
+
+**Example:**
+
+```bash
+forge create src/Counter.sol:Counter --rpc-url http://localhost:8545 --interactive
+```
+
+
+This will deploy the `Counter` contract to your local Anvil node.
+
+---
+
 ## Learn More
 
 - Official Book: https://book.getfoundry.sh/
