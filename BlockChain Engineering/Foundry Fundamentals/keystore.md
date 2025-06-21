@@ -107,11 +107,17 @@ main();
 ## How to Use a Keystore in Your App or Script
 
 **Option 1: Foundry / Cast**
+
+for production
 ```bash
 cast send \
   --keystore ./my-keystore.json \
   --password "yourStrongPassword" \
   <contract_address> "transfer(address,uint256)" <to> <amount>
+```
+for developement
+```bash
+cast wallet import defaultkey --interactive
 ```
 
 **Option 2: ethers.js**
