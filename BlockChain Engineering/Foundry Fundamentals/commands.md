@@ -4,7 +4,14 @@ This table lists essential **Foundry CLI commands** and their purposes, organize
 
 ---
 
-## 🛠️ `forge` – Compilation, Testing, Deployment
+## `forge` – Compilation, Testing, Deployment
+
+**What it does:**
+
+- Compiles Solidity contracts.
+- Runs Solidity-based tests.
+- Handles deployment scripts.
+- Performs gas reporting and fuzz testing.
 
 | Command | Description |
 |--------|-------------|
@@ -24,7 +31,21 @@ This table lists essential **Foundry CLI commands** and their purposes, organize
 
 ---
 
-## 🔗 `cast` – Blockchain Interaction & Utilities
+## `cast` – Blockchain Interaction & Utilities
+
+**What it does:**
+
+- Interacts with live Ethereum networks (mainnet, testnets).
+- Sends transactions, reads data, converts units.
+- Useful for scripting, debugging, and automation.
+
+**Examples:**
+```bash
+cast call <contract> <function_signature> --rpc-url <url>
+cast send <contract> <function_signature> --private-key <key>
+cast block latest --rpc-url <url>
+cast keccak "MyFunction(uint256)"
+```
 
 | Command | Description |
 |--------|-------------|
@@ -48,7 +69,19 @@ This table lists essential **Foundry CLI commands** and their purposes, organize
 
 ---
 
-## ⛓️ `anvil` – Local Ethereum Node
+## `anvil` – Local Ethereum Node
+
+**What it does:**
+
+- Spins up a local EVM-compatible Ethereum blockchain.
+- Useful for local testing, transactions, and development.
+- Mimics Hardhat Network and Ganache functionality.
+
+**Features:**
+
+- Fork mainnet or any other chain.
+- Provides test accounts with ETH.
+- Logs transactions in real-time.
 
 | Command | Description |
 |--------|-------------|
@@ -61,7 +94,7 @@ This table lists essential **Foundry CLI commands** and their purposes, organize
 
 ---
 
-## ⬆️ `foundryup` – Installation & Updates
+## `foundryup` – Installation & Updates
 
 | Command | Description |
 |--------|-------------|
@@ -70,7 +103,14 @@ This table lists essential **Foundry CLI commands** and their purposes, organize
 
 ---
 
-## 🔍 `chisel` – Bytecode Analysis (Advanced)
+## `chisel` – Bytecode Analysis (Advanced)
+
+**What it does:**
+
+- Disassembles and analyzes smart contract bytecode.
+- Useful for reverse engineering or debugging on-chain contracts.
+
+> Note: Not used often in daily development, but valuable for advanced users.
 
 | Command | Description |
 |--------|-------------|
@@ -83,7 +123,7 @@ This table lists essential **Foundry CLI commands** and their purposes, organize
 
 ---
 
-## ✅ Suggested Learning Path for Beginners
+## Suggested Learning Path for Beginners
 
 1. Learn `forge build`, `forge test`, and `forge script`.
 2. Use `anvil` to simulate real-world networks locally.
