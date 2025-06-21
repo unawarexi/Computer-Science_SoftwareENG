@@ -9,7 +9,7 @@ curl -L https://raw.githubusercontent.com/matter-labs/foundry-zksync/main/instal
 This toolchain installs ZKsync-compatible versions of:
 
 - `forge` & `cast` (with `--zksync` extensions)
-- `anvil-zksync` for local zkEVM nodes
+-  run `anvil-zksync` for local zkEVM nodes and built in private-keys and accounts
 
 **Note for Windows users:** Use Git Bash or WSL due to script compatibility issues.
 
@@ -89,8 +89,10 @@ You can also enable zk context via flags:
 
 # 5. Deployment
 
-Using `forge create` with `--zksync`:
+Using `forge create` with `--zksync`:  currently zksync doesn't support scripts
+- make sure to specify the path of your contract its not smart enough like vanilla foundry  
 
+- #### use this for main testing and deployment of anvil-zksync
 ```bash
 forge create \
   src/Counter.sol:Counter \
@@ -103,6 +105,10 @@ forge create \
   --verify \
   --verifier-url <EXPLORER_API_URL> \
   --etherscan-api-key $ZKSYNC_API_KEY
+```
+- #### use this for local testing and deployment of anvil-zksync
+```bash
+forge create src/SimpleStorage.sol:SimpleStorage --rpc_url $ZKRPC_URL --private-key $ZKPRIVATE_KEY --legacy --zksync
 ```
 
 Cast can also deploy:
