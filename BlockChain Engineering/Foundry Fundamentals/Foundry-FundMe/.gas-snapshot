@@ -1,0 +1,8 @@
+FundMeTest:testCheaperWithdrawWorks() (gas: 98199)
+FundMeTest:testFundFailsIfNotEnoughEth() (gas: 39230)
+FundMeTest:testFundUpdatesFunderData() (gas: 116170)
+FundMeTest:testGetPriceFeedReturnsCorrectAddress() (gas: 8179)
+FundMeTest:testMinimumDollarIsFive() (gas: 13416)
+FundMeTest:testOnlyOwnerCanWithdraw() (gas: 98656)
+FundMeTest:testOwnerIsDeployer() (gas: 15745)
+FundMeTest:testPriceFeedVersionIsAccurate() (gas: 11260)
