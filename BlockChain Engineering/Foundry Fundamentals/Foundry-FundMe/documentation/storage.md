@@ -170,3 +170,20 @@ Foundry allows in-depth manipulation of storage, such as:
 - Storage is core to security and gas optimization in smart contracts
 - Misusing storage can introduce reentrancy, overwrites, and upgrade bugs
 - Mastering storage helps you write safe, cheap, and scalable contracts
+
+---
+
+## Tips for Efficient Gas Optimization
+
+- **Pack Variables:** Group variables of the same smaller type (e.g., `uint8`, `uint16`) together to fit them into a single storage slot.
+- **Minimize Storage Writes:** Only write to storage when necessary. Use memory or calldata for temporary variables.
+- **Use `constant` and `immutable`:** Prefer `constant` and `immutable` for values that do not change, as they are cheaper than regular storage variables.
+- **Short-Circuit Logic:** Place the most likely condition first in `if`/`else` statements to reduce unnecessary computation.
+- **Avoid Dynamic Storage Reads/Writes in Loops:** Minimize reading/writing to storage inside loops. Cache values in memory if possible.
+- **Delete Unused Storage:** Set storage variables to zero when no longer needed to get gas refunds.
+- **Use Events for Off-Chain Data:** Store large or infrequently accessed data in events/logs instead of contract storage.
+- **Optimize Function Visibility:** Use `external` for functions that are only called from outside the contract, as it is cheaper than `public`.
+- **Leverage Custom Errors:** Use custom errors instead of `require("string")` to save gas on revert reasons.
+- **Minimize Contract Size:** Remove unused code and libraries to reduce deployment costs.
+
+These tips will help you write more efficient and cost-effective smart contracts.
