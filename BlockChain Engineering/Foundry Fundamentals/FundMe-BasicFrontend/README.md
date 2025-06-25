@@ -4,8 +4,8 @@
 
 The FundMe-BasicFrontend allows users to connect their wallet, fund the contract, and withdraw funds. It is a simple educational project to help you understand how to build a frontend that communicates with Ethereum smart contracts.
 
-![App Screenshot 1](./assets/Screenshot%202025-06-25%20at%2018.28.10.png)
-![App Screenshot 2](./assets/Screenshot%202025-06-25%20at%2018.29.41.png)
+| ![App Screenshot 1](./assets/Screenshot%202025-06-25%20at%2018.28.10.png) | ![App Screenshot 2](./assets/Screenshot%202025-06-25%20at%2018.29.41.png) |
+|:---:|:---:|
 
 ## Features
 
