@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Me - Crypto Investment Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-coins"></i> Fund Me
+            </div>
+            <div class="subtitle">Decentralized Investment Platform</div>
+            <div class="description">
+                Connect your wallet and start funding smart contracts with ease. 
+                Built for developers and crypto enthusiasts.
+            </div>
+        </div>
+
+        <div class="main-card">
+            <div class="wallet-section">
+                <div class="wallet-status">
+                    <div class="status-indicator">
+                        <div class="status-dot" id="statusDot"></div>
+                        <span id="walletStatus">Wallet Disconnected</span>
+                    </div>
+                    <button class="btn" id="connectButton">
+                        <i class="fas fa-wallet"></i>
+                        Connect
+                    </button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" id="balanceButton">
+                    <i class="fas fa-chart-line"></i>
+                    Get Balance
+                </button>
+                <button class="btn btn-danger" id="withdrawButton">
+                    <i class="fas fa-arrow-up"></i>
+                    Withdraw
+                </button>
+            </div>
+
+            <div class="fund-section">
+                <div class="fund-title">
+                    <i class="fab fa-ethereum"></i>
+                    Fund Contract
+                </div>
+                
+                <div class="input-group">
+                    <label for="ethAmount" class="input-label">ETH Amount</label>
+                    <div style="position: relative;">
+                        <input 
+                            type="number" 
+                            id="ethAmount" 
+                            class="input-field" 
+                            placeholder="0.1" 
+                            step="0.001"
+                            min="0"
+                        />
+                        <span class="eth-symbol">ETH</span>
+                    </div>
+                </div>
+
+                <button type="button" class="btn" id="fundButton" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i>
+                    Fund Contract
+                </button>
+            </div>
+
+            <div class="balance-display" id="balanceDisplay">
+                <div class="balance-label">Current Balance</div>
+                <div class="balance-amount" id="balanceAmount">0.00 ETH</div>
+            </div>
+
+            <div class="message" id="messageDisplay">
+                <span id="messageText"></span>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./styles.js"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
