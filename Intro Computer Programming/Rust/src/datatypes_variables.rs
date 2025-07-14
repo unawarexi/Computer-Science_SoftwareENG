@@ -57,4 +57,7 @@ enum Direction {
 let direction = Direction::Up; // Example enum variable
 
 
+let random_number: u32 = rand::thread_rng().gen_range(1..101); // Example random number generation
+
+
 }
