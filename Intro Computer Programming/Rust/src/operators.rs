@@ -1,7 +1,7 @@
 // operators.rs - Rust Operators Examples
 // This file demonstrates all operators covered in the operators.md guide
-
-fn main() {
+#![allow(unused)]
+pub fn operators() {
     println!("=== RUST OPERATORS EXAMPLES ===\n");
     
     //------------------------------------ 1. ARITHMETIC OPERATORS

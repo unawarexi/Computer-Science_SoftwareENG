@@ -1,4 +1,6 @@
-fn main() {
+#![allow(unused)]
+
+pub fn r#main() {
     // global variables
     let mut counter = 0;
     let mut number = 5;

@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 enum Direction {
     North,
     South,
@@ -5,7 +7,7 @@ enum Direction {
     West,
 }
 
-fn main() {
+pub fn r#match() {
     // Example of a simple match statement
     let number = 3;
 

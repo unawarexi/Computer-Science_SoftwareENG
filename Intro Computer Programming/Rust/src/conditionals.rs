@@ -1,11 +1,11 @@
+#![allow(unused)]
 use std::io;
 use rand::Rng;
 use std::fs::File;
 use std::cmp::Ordering;
 
-fn main() {
-
-    // example of if else and else if statements
+pub fn conditionals() {
+    // Example of if, else if, and else statements
     let score = 85;
 
     if score >= 90 {
@@ -18,7 +18,6 @@ fn main() {
         println!("Grade: F");
     }
 
-
     // Example of if let expression statement
     let is_logged_in = true;
 
@@ -30,26 +29,25 @@ fn main() {
 
     println!("{}", message);
 
+    // No ternary operator in Rust, but we can use `if` as an expression
+    let x: u32 = 10;
+    let condition = true; 
+    let result = if condition { x } else { 0 }; // Both arms must return the same type
 
-    // no ternary operator in Rust, but you can use if expressions
-    let result = if condition { x } else { y };
+    println!("Result is: {}", result);
 
-
-    // nested if statements
+    // Nested if statements
+    let y = 5; // define y for comparison
     if x > 0 {
         if y > 0 {
             println!("x and y are positive");
         }
     }
-    
 
     // Example of if expression with a boolean condition
     let num = 10;
 
-    // if num { ... } ❌ Error: expected `bool`, found `i32`
-
     if num != 0 {
         println!("Number is not zero");
     }
-
 }

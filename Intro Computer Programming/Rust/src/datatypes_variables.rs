@@ -1,63 +1,85 @@
+#![allow(unused)]
 use std::io;
 use rand::Rng;
 use std::fs::File;
 use std::cmp::Ordering;
 
-fn main() {
-   const GREETING: &str = "Nice to meet you,"; 
-   let name: &str = "Alice"; // Example slice variable
+pub fn datatypes() {
+    const GREETING: &str = "Nice to meet you,"; 
+    let name: &str = "Alice"; // Example slice variable
+    println!("{} {}", GREETING, name);
 
-   //mutable viariable
-   let mut age = 25; // Example age variable
-   age = 25 // same memory location, but different value
-   
-   const PI: f64 = 3.14159; // Example constant
-   let salary: u32 = 100000; // Example unsigned integer variable
-   let bonus: f32 = 5000.50; // Example floating-point variable
-   const graduated : bool = true; // Example boolean constant
-   let is_employed: bool = false; // Example boolean variable
+    // Mutable variable
+    let mut age = 25;
+    age = 26; // Updated value
+    println!("Age: {}", age);
 
-   let x = 10; // Example immutable and inferred variable
-   let mut y = 20; // Example mutable and inferred variable
+    const PI: f64 = 3.14159;
+    println!("Constant PI: {}", PI);
 
-   // shadowing example; relaces the previous value of x
-    let x = 5; // x is immutable
-    let x = x + 1; // x is now shadowed and mutable
-    let x = "blue"; // x is now shadowed again
+    let salary: u32 = 100_000;
+    let bonus: f32 = 5000.50;
+    println!("Salary: {}, Bonus: {}", salary, bonus);
 
+    const GRADUATED: bool = true;
+    let is_employed: bool = false;
+    println!("Graduated: {}, Employed: {}", GRADUATED, is_employed);
 
+    let x = 10;
+    let mut y = 20;
+    println!("Original x: {}, y: {}", x, y);
 
+    // Shadowing
+    let x = 5;
+    let x = x + 1;
+    let x = "blue";
+    println!("Shadowed x: {}", x);
 
-// use arrays when youre certain of the size
-// use vectors when you want a dynamic size
-// use tuples when you want to group different types together
-// use structs when you want to define a custom data type
-// use enums when you want to define a type that can be one of several variants    
-let scores: [u32; 5] = [90, 85, 78, 92, 88]; // Example array variable unisgned integer array
+    // Arrays
+    let scores: [u32; 5] = [90, 85, 78, 92, 88];
+    println!("Scores array: {:?}", scores);
 
-let mut numbers: Vec<i32> = vec![1, 2, 3, 4, 5]; // Example vector variable
+    // Vectors
+    let mut numbers: Vec<i32> = vec![1, 2, 3, 4, 5];
+    numbers.push(6); // Add an element
+    println!("Numbers vector: {:?}", numbers);
 
-struct Person {
-    name: String,
-    age: u32, } 
+    // Struct
+    struct Person {
+        name: String,
+        age: u32,
+    }
 
-let person = Person {
-    name: String::from("Alice"),
-    age: 30,
-}
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+    println!("Person => Name: {}, Age: {}", person.name, person.age);
 
-const MAX_SCORE: (String, u32, bool, f64) = (String::from("Alice"), 100, true, 3.14); // Example tuple constant
+    // Tuple
+    const MAX_SCORE: (&str, u32, bool, f64) = ("Alice", 100, true, 3.14);
+    println!(
+        "Tuple => Name: {}, Score: {}, Passed: {}, GPA: {}",
+        MAX_SCORE.0, MAX_SCORE.1, MAX_SCORE.2, MAX_SCORE.3
+    );
 
-enum Direction {
-    Up,
-    Down,
-    Left,
-    Right, 
-}
-let direction = Direction::Up; // Example enum variable
+    // Enum
+    enum Direction {
+        Up,
+        Down,
+        Left,
+        Right,
+    }
 
+    let direction = Direction::Up;
+    match direction {
+        Direction::Up => println!("Going Up"),
+        Direction::Down => println!("Going Down"),
+        Direction::Left => println!("Going Left"),
+        Direction::Right => println!("Going Right"),
+    }
 
-let random_number: u32 = rand::thread_rng().gen_range(1..101); // Example random number generation
-
-
+    // Random number
+    let random_number: u32 = rand::thread_rng().gen_range(1..101);
+    println!("Random number generated: {}", random_number);
 }
