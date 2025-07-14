@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class WelcomeHeader extends StatelessWidget {
-  const WelcomeHeader({Key? key}) : super(key: key);
+  const WelcomeHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

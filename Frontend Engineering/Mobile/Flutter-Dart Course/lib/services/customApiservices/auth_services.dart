@@ -4,7 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: constant_identifier_names
-const BASE_URL = 'http://192.168.61.155:3000/api/v1/auth';
+const BASE_URL = 'http://localhost:3000/api/v1/auth';
+
+// http://192.168.61.155:3000/api/v1/auth
 
 class AuthService {
   final Dio _dio = Dio();
@@ -121,6 +123,7 @@ class AuthService {
         },
       );
       return response.data;
+     
     } on DioException catch (e) {
       if (e.response != null) {
         throw Exception(e.response?.data['message'] ?? 'Signup failed');
