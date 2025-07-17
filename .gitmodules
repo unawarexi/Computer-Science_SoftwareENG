@@ -31,3 +31,12 @@
 [submodule "BlockChain Engineering/Advanced Foundry/Foundry-ERC20-Token/lib/openzeppelin-contracts"]
 	path = BlockChain Engineering/Advanced Foundry/Foundry-ERC20-Token/lib/openzeppelin-contracts
 	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "BlockChain Engineering/Advanced Foundry/Foundry-NFT-Token/lib/forge-std"]
+	path = BlockChain Engineering/Advanced Foundry/Foundry-NFT-Token/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "BlockChain Engineering/Advanced Foundry/Foundry-NFT-Token/lib/foundry-devops"]
+	path = BlockChain Engineering/Advanced Foundry/Foundry-NFT-Token/lib/foundry-devops
+	url = https://github.com/cyfrin/foundry-devops
+[submodule "BlockChain Engineering/Advanced Foundry/Foundry-NFT-Token/lib/openzeppelin-contracts"]
+	path = BlockChain Engineering/Advanced Foundry/Foundry-NFT-Token/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts

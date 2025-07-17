@@ -1,10 +1,10 @@
-# 🦀 `match` in Rust — Pattern Matching Explained for Students
+# `match` in Rust — Pattern Matching Explained for Students
 
 The `match` keyword in Rust is one of the most powerful and expressive tools for **control flow** and **pattern matching**. It works like a **supercharged switch statement** from other languages — but **safer and more flexible**.
 
 ---
 
-## 📦 What Is `match`?
+## What Is `match`?
 
 > `match` lets you compare a value against a series of patterns and execute code based on which pattern matches.
 
@@ -16,10 +16,11 @@ match value {
     pattern2 => expression2,
     _ => default_expression,
 }
-🔹 Example: Match a Number
-rust
-Copy
-Edit
+```
+
+## Example: Match a Number
+
+```rust
 fn main() {
     let number = 3;
 
@@ -30,19 +31,20 @@ fn main() {
         _ => println!("Something else!"),
     }
 }
-number is matched against different cases.
+```
 
-_ is the catch-all pattern (like else).
+- `number` is matched against different cases.
+- `_` is the catch-all pattern (like else).
 
-✅ Match Is Exhaustive
+## Match Is Exhaustive
+
 You must handle all possible cases. If not, the compiler will throw an error.
 
-This is what makes Rust safe. You can’t “forget” a case.
+This is what makes Rust safe. You can't "forget" a case.
 
-🔄 Matching Multiple Patterns
-rust
-Copy
-Edit
+## Matching Multiple Patterns
+
+```rust
 fn main() {
     let day = "Sat";
 
@@ -52,12 +54,13 @@ fn main() {
         _ => println!("Just another day."),
     }
 }
-| means "or". This handles multiple patterns in one arm.
+```
 
-🧾 Matching Ranges
-rust
-Copy
-Edit
+`|` means "or". This handles multiple patterns in one arm.
+
+## Matching Ranges
+
+```rust
 fn main() {
     let age = 16;
 
@@ -67,16 +70,17 @@ fn main() {
         _ => println!("Adult"),
     }
 }
-..= is an inclusive range.
+```
+
+`..=` is an inclusive range.
 
 Great for handling numeric ranges.
 
-🔐 Match with Enums
+## Match with Enums
+
 This is where match really shines in Rust.
 
-rust
-Copy
-Edit
+```rust
 enum Direction {
     North,
     South,
@@ -94,12 +98,13 @@ fn main() {
         Direction::West => println!("Left!"),
     }
 }
-🧰 Match and Binding with Option<T>
+```
+
+## Match and Binding with Option<T>
+
 Rust doesn't have null. Instead, it uses Option.
 
-rust
-Copy
-Edit
+```rust
 fn main() {
     let name: Option<String> = Some(String::from("Rust"));
 
@@ -108,14 +113,15 @@ fn main() {
         None => println!("No name provided."),
     }
 }
-Option<T> is either Some(value) or None.
+```
 
-✂️ Destructuring in Match
+`Option<T>` is either `Some(value)` or `None`.
+
+## Destructuring in Match
+
 You can extract values using pattern matching:
 
-rust
-Copy
-Edit
+```rust
 enum Message {
     Hello(String),
     Quit,
@@ -129,12 +135,13 @@ fn main() {
         Message::Quit => println!("Quit message"),
     }
 }
-🔁 Match as an Expression (Return Values)
+```
+
+## Match as an Expression (Return Values)
+
 You can return a value from match:
 
-rust
-Copy
-Edit
+```rust
 fn get_grade(score: u8) -> &'static str {
     match score {
         90..=100 => "A",
@@ -143,36 +150,38 @@ fn get_grade(score: u8) -> &'static str {
         _ => "F",
     }
 }
-❓ Match Guards (if in match)
-Use if in a pattern for extra conditions:
+```
 
-rust
-Copy
-Edit
+## Match Guards (if in match)
+
+Use `if` in a pattern for extra conditions:
+
+```rust
 let number = 7;
 
 match number {
     x if x % 2 == 0 => println!("Even"),
     _ => println!("Odd"),
 }
-🧠 Summary Table
-Feature	Syntax	Use Case
-Basic Match	match x { 1 => ..., _ => ... }	Control flow by value
-Multiple Patterns	`1	2 => ...`
-Ranges	1..=10 => ...	Match numeric ranges
-Enums	Some(x) => ...	Handle enum variants
-Destructuring	Some(value)	Extract values
-Guards	x if x > 5 => ...	Add conditions to patterns
-Return Value	let result = match ...	Match as an expression
+```
 
+## Summary Table
 
-## 🧩 Bonus: `if let` and `let else` — Cleaner Control Flow in Rust
+| Feature | Syntax | Use Case |
+|---------|--------|----------|
+| Basic Match | `match x { 1 => ..., _ => ... }` | Control flow by value |
+| Multiple Patterns | `1 \| 2 => ...` | Match several values |
+| Ranges | `1..=10 => ...` | Match numeric ranges |
+| Enums | `Some(x) => ...` | Handle enum variants |
+| Destructuring | `Some(value)` | Extract values |
+| Guards | `x if x > 5 => ...` | Add conditions to patterns |
+| Return Value | `let result = match ...` | Match as an expression |
+
+## Bonus: `if let` and `let else` — Cleaner Control Flow in Rust
 
 Rust provides some **shortcut syntax** for matching values when `match` would be too verbose. These are especially helpful when you only care about **one specific case**.
 
----
-
-### 🔍 `if let` – Focused Pattern Matching
+### `if let` – Focused Pattern Matching
 
 ```rust
 let some_value = Some(5);
@@ -180,44 +189,45 @@ let some_value = Some(5);
 if let Some(x) = some_value {
     println!("Found a value: {}", x);
 }
-✅ Why use if let?
-It's cleaner than match when you only care about one pattern.
+```
 
-It ignores all other cases by default.
+**Why use if let?**
+- It's cleaner than match when you only care about one pattern.
+- It ignores all other cases by default.
 
-rust
-Copy
-Edit
+```rust
 // Instead of this full match:
 match some_value {
     Some(x) => println!("Found: {}", x),
-    None => (), // Must write this even if we don’t care
+    None => (), // Must write this even if we don't care
 }
 
 // Use this:
 if let Some(x) = some_value {
     println!("Found: {}", x);
 }
-💬 Optional else with if let
-rust
-Copy
-Edit
+```
+
+### Optional else with if let
+
+```rust
 if let Some(x) = some_value {
     println!("Value: {}", x);
 } else {
     println!("No value found");
 }
+```
+
 You can still handle the fallback using else.
 
-⛔ if let Limitation
+**if let Limitation**
 It only matches one specific pattern. If you want to match multiple or different patterns, use match.
 
-🔐 let else – Early Exit if Pattern Doesn’t Match
-Rust 1.65+ introduced let else to early return or exit when a pattern doesn’t match.
+### `let else` – Early Exit if Pattern Doesn't Match
 
-rust
-Copy
-Edit
+Rust 1.65+ introduced `let else` to early return or exit when a pattern doesn't match.
+
+```rust
 fn get_username(id: Option<String>) {
     let Some(name) = id else {
         println!("No username provided!");
@@ -226,52 +236,46 @@ fn get_username(id: Option<String>) {
 
     println!("Hello, {}!", name);
 }
-✅ Why use let else?
-It's great for early exits (like return, break, or panic!) when a pattern fails to match.
+```
 
-Prevents unnecessary nesting.
+**Why use let else?**
+- It's great for early exits (like return, break, or panic!) when a pattern fails to match.
+- Prevents unnecessary nesting.
 
-🧠 When to Use What?
-Use Case	Syntax	Benefit
-Matching one pattern	if let	Clean and concise
-Early return on failed pattern	let else	Avoids deep nesting
-Full pattern matching	match	Exhaustive and flexible
+### When to Use What?
 
-🧪 Practice Task Ideas
-Use if let to extract a value from Option<i32>.
+| Use Case | Syntax | Benefit |
+|----------|--------|---------|
+| Matching one pattern | `if let` | Clean and concise |
+| Early return on failed pattern | `let else` | Avoids deep nesting |
+| Full pattern matching | `match` | Exhaustive and flexible |
 
-Use let else in a function to return early if input is None.
+## Practice Task Ideas
 
-Rewrite a match block into if let where appropriate.
+1. Use `if let` to extract a value from `Option<i32>`.
+2. Use `let else` in a function to return early if input is `None`.
+3. Rewrite a match block into `if let` where appropriate.
 
+## Practice Ideas
 
+1. Match `Option<i32>` to handle user input
+2. Write a function that returns a grade using match
+3. Handle an enum with multiple variants
+4. Use match with tuples: `match (x, y)`
 
-✅ Practice Ideas
-Match Option<i32> to handle user input
+## Resources
 
-Write a function that returns a grade using match
+- [The Rust Book - Match Control Flow](https://doc.rust-lang.org/book/ch06-02-match.html)
+- [The Rust Book - Enums & Pattern Matching](https://doc.rust-lang.org/book/ch06-00-enums.html)
+- [Rust Playground](https://play.rust-lang.org/)
+- [Rust by Example - Match](https://doc.rust-lang.org/rust-by-example/flow_control/match.html)
 
-Handle an enum with multiple variants
+## TL;DR
 
-Use match with tuples: match (x, y)
+`match` is like a smarter, safer switch that:
 
+- Requires you to cover every possible case
+- Supports pattern matching, destructuring, guards, and more
+- Works great with enums and Option/Result types
 
-
-📚 Resources
-📖 Rust Book: Match
-
-📘 Enums & Pattern Matching
-
-🧪 Rust Playground
-
-💬 TL;DR
-match is like a smarter, safer switch that:
-
-Requires you to cover every possible case
-
-Supports pattern matching, destructuring, guards, and more
-
-Works great with enums and Option/Result types
-
-Understanding match is key to idiomatic Rust!
-
+Understanding `match` is key to idiomatic Rust!
