@@ -20,6 +20,12 @@ import ExplainHooks from "./hooks/ExplainHooks";
 function App() {
   return (
     <ContextProvider>
+      <button
+        onClick={() => setToggle(!toggle)}
+        className="bg-blue-500 text-white font-semibold py-2 px-4 rounded mb-4"
+      >
+        Toggle Authentication
+      </button>
       <Routes>
         {/* ------------- BASIC ROUTING ----------------------- */}
         <Route path="/" element={<HomePage />} />
@@ -27,6 +33,27 @@ function App() {
         <Route path="/props" element={<User />} />
         <Route path="/render" element={<ArrayObjectMapping />} />
         <Route path="/conditional" element={<Conditional />} />
+
+        {/* ----------- conditional routes ----------------------- */}
+
+        <Route
+          path="/"
+          element={toggle ? <Authentication /> : <Authentication2 />}
+        />
+        
+        {/* -------------  Nested routes -------------- */}
+        <Route
+          path="/home"
+          element={
+            <>
+              <HeroSection />
+              <SecondaryHeroSection />
+            </>
+          }
+        />
+        <Route path="/landing" element={<Landing />} />
+        <Route path="blog/*" element={<Blog />} />
+        <Route path="dashboard/*" element={<Dashboard />} />
 
         {/* ----------- DYNAMIC ROUTES ---------- */}
         <Route path="/products" element={<Products />} />
