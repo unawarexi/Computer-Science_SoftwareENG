@@ -18,7 +18,7 @@
 | **Crypto-Backed**         | Overcollateralized with crypto assets(endogenous)          | DAI, LUSD, MIM         | Decentralized; resilient but volatile collateral        |
 | **Algorithmic**           | Supply adjusted algorithmically                | FRAX, GHO, USDN (failed) | High risk; some have failed due to peg instability     |
 | **Hybrid**                | Combines crypto collateral + algorithmic logic | FRAX, sUSD             | Balanced model to improve stability and scalability    |
-| **Commodity-Backed**      | Pegged to physical assets like gold            | PAXG, XAUT              | Tokenized assets; not widely used in DeFi yet          |
+| **Commodity-Backed**      | Pegged to physical assets like gold(exogenous)          | PAXG, XAUT              | Tokenized assets; not widely used in DeFi yet          |
 
 ---
 
