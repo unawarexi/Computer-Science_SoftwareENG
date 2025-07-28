@@ -44,7 +44,7 @@ contract DecentralizedStableCoin is ERC20Burnable, Ownable {
     https://github.com/OpenZeppelin/openzeppelin-contracts/commit/13d5e0466a9855e9305119ed383e54fc913fdc60
 */
 
-    function burn(_uint256 _amount) public override onlyOwner {
+    function burn(uint256 _amount) public override onlyOwner {
         uint256 balance = balanceOf(msg.sender);
         if (_amount <= 0) {
             revert DecentralizedStableCoin__AmountMustBeMoreThanZero();
