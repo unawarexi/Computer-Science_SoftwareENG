@@ -87,7 +87,6 @@ contract RebaseToken is ERC20Burnable, Ownable, AccessControl {
         s_interestRate = _newInterestRate;
         emit InterestRateSet(_newInterestRate);
     }
-
     
 
     /**
