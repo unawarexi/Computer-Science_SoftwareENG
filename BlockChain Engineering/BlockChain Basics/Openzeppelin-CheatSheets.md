@@ -131,6 +131,8 @@ function unpause() external onlyRole(PAUSER_ROLE) {
 
 
 
+
+
 ## Security Features
 
 | Feature | Contracts | Use Case |
@@ -141,6 +143,9 @@ function unpause() external onlyRole(PAUSER_ROLE) {
 | Role-based auth | AccessControl | Decentralized permission control |
 | Upgrade guards | UUPSUpgradeable | Prevent unprotected upgrades |
 | Signature checks | ECDSA, ERC20Permit | Off-chain approvals, metatransactions |
+
+
+
 
 ### Security Implementation
 
