@@ -14,8 +14,8 @@ contract RebaseToken is ERC20Burnable {
 
     /// @notice Thrown when attempting to increase the interest rate
     error RebaseToken_InterestRateCanOnlyDecrease(
-        uint256 attempted,
-        uint256 current
+        uint256 currentInterestRate,
+        uint256 newInterestRate
     );
     error RebaseToken_InterestRateCannotBeZero();
     error RebaseToken_MintToZeroAddress();
@@ -53,8 +53,7 @@ contract RebaseToken is ERC20Burnable {
     function setInterestRate(uint256 _newInterestRate) external {
         if (_newInterestRate > s_interestRate) {
             revert RebaseToken_InterestRateCanOnlyDecrease(
-                _newInterestRate,
-                s_interestRate
+                s_interestRate,  _newInterestRate
             );
         }
 
@@ -76,27 +75,40 @@ contract RebaseToken is ERC20Burnable {
     function getUserInterestRate( address _user) external view returns (uint256) {
         return s_userInterestRate[_user];
     }
-
+  
+  // ------------------------------ Internal Functions ------------------------------
 
     /**
-     * @notice Returns the user's balance with accrued interest
-     * @param account The address to query balance for
+     * @notice Calculates the accumulated interest for a user
+     * @param _user The address of the user
+     * @return The amount of interest accrued by the user
      */
-    function balanceOf(address account) public view override returns (uint256) {
-        uint256 lastRebaseTimestamp = s_userLastRebaseTimestamp[account];
-
+   function calculateUserAccumulatedInterest(address _user) internal view returns (uint256) {
+        uint256 lastRebaseTimestamp = s_userLastRebaseTimestamp[_user];
         if (lastRebaseTimestamp == 0) {
-            return super.balanceOf(account); // No interest accrued yet
+            return 0; // No interest accrued yet
         }
 
         uint256 timeElapsed = block.timestamp - lastRebaseTimestamp;
-        uint256 baseBalance = super.balanceOf(account);
+        uint256 baseBalance = super.balanceOf(_user);
 
-        uint256 interest = (baseBalance * s_interestRate * timeElapsed) /
+        uint256 interest = (baseBalance * s_userInterestRate[_user] * timeElapsed) /
             INTEREST_RATE_PRECISION /
             SECONDS_IN_YEAR;
 
-        return baseBalance + interest;
+        return interest;
+    }   
+
+    /**
+     * @notice Returns the balance of a user, including accrued interest
+     * @param account The address of the user
+     * @return The total balance of the user, including accrued interest
+     */
+    function balanceOf(address account) public view override returns (uint256) {
+        uint256 accumulatedInterest =  calculateUserAccumulatedInterest(account); // Ensure interest is calculated 
+        uint256 totalBalalnce = super.balanceOf(account) + accumulatedInterest;
+
+        return totalBalalnce; // Return the total balance including accrued interest
     }
 
     /**
