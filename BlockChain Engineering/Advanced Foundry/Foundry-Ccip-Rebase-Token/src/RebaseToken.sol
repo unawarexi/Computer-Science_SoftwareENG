@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.24;
 
 import {ERC20Burnable, ERC20} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
@@ -27,9 +27,8 @@ contract RebaseToken is ERC20Burnable, Ownable, AccessControl {
     // ------------------------------ State Variables ------------------------------
 
     // Global interest rate (scaled by INTEREST_RATE_PRECISION for accuracy)
-    uint256 private s_interestRate = 5e16; // 5% annual rate (adjusted for 1e18 precision)
-
-    uint256 private constant INTEREST_RATE_PRECISION = 1e18;
+    uint256 private constant INTEREST_RATE_PRECISION = 1e27;
+    uint256 private s_interestRate = (5 * INTEREST_RATE_PRECISION ) / 1e8; // 5% annual rate (adjusted for 1e18 precision)
     uint256 private constant SECONDS_IN_YEAR = 365 days;
     bytes32 public constant MINT_AND_BURN_ROLE = keccak256("MINT_AND_BURN_ROLE");
     

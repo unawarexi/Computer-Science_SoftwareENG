@@ -36,7 +36,8 @@ contract Vault {
     // Function to deposit underlying asset and mint rebase tokens
     // it doesn't expect any parameters, it uses msg.value to determine the amount
     function deposit() external payable {
-        i_rebaseTokens.mint(msg.sender, msg.value);
+        // Use mintWithCurrentRate instead of mint to use the current global interest rate
+        i_rebaseTokens.mintWithCurrentRate(msg.sender, msg.value);
         emit Deposit(msg.sender, msg.value);
     }
 
@@ -47,9 +48,13 @@ contract Vault {
         if (_amount == 0) {
             revert Vault__InvalidAmount();
         }
+        if (_amount == type(uint256).max) {
+           _amount = i_rebaseTokens.balanceOf(msg.sender); // Redeem all tokens if max is specified
+        }   
         // Burn the user's tokens and send the underlying asset back
-        i_rebaseTokens.burn(msg.sender, _amount);
-       (bool success, ) = payable(msg.sender).call{value : _amount}(""); // Assuming 1:1 mapping for simplicity
+        // Use burnFrom with correct parameter order
+        i_rebaseTokens.burnFrom(_amount, msg.sender);
+        (bool success, ) = payable(msg.sender).call{value: _amount}(""); // Assuming 1:1 mapping for simplicity
         if(!success) {
             revert Vault__TransferFailed(); // Handle the case where the transfer fails
         }
