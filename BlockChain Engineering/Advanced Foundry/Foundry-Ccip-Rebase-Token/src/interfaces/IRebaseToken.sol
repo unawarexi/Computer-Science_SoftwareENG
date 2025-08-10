@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.24;
 
+// Interface for the Rebase Token contract
 interface IRebaseToken {
-    // Interface for the Rebase Token contract
-
+    
     // Match the actual implementation with 3 parameters
     function mint(address _to, uint256 _amount, uint256 _userInterestRate) external;
 
