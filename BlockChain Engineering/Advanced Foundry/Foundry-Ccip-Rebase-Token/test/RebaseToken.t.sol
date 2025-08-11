@@ -339,29 +339,7 @@ contract RebaseTokenTest is Test {
         
         vm.stopPrank();
     }
-    // function testVaultRedeemFails() public {
-    //     uint256 depositAmount = 5e18;
-        
-    //     vm.startPrank(user);
-    //     vm.deal(user, depositAmount);
-        
-    //     vault.deposit{value: depositAmount}();
-        
-    //     // This should fail because the interface and implementation don't match
-    //     vm.expectRevert();
-    //     vault.redeem(depositAmount);
-        
-    //     vm.stopPrank();
-    // }
-
-    // function testVaultRedeemInvalidAmount() public {
-    //     vm.startPrank(user);
-        
-    //     vm.expectRevert("Vault__InvalidAmount");
-    //     vault.redeem(0);
-        
-    //     vm.stopPrank();
-    // }
+  
 
     function testGetRebaseTokenAddress() public {
         assertEq(vault.getRebaseTokenAddress(), address(rebaseToken));
