@@ -76,3 +76,6 @@
 [submodule "BlockChain Engineering/Advanced Foundry/Foundry-Ccip-Cct-Token/lib/chainlink-brownie-contracts"]
 	path = BlockChain Engineering/Advanced Foundry/Foundry-Ccip-Cct-Token/lib/chainlink-brownie-contracts
 	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "BlockChain Engineering/Advanced Foundry/Foundry-Ccip-Rebase-Token/lib/chainlink-local"]
+	path = BlockChain Engineering/Advanced Foundry/Foundry-Ccip-Rebase-Token/lib/chainlink-local
+	url = https://github.com/smartcontractkit/chainlink-local
