@@ -567,6 +567,6 @@ contract CrossChainTest is Test {
         // Verify final state
         assertEq(arbRebaseToken.balanceOf(bridgeUser), balanceWithInterest);
         assertEq(arbRebaseToken.getUserInterestRate(bridgeUser), userInterestRate);
-        assertGe(balanceWithInterest, depositAmount); // Should have accrued some interest
+        assertGe(balanceWithInterest, depositAmount); // have accrued some interest
     }
 }
