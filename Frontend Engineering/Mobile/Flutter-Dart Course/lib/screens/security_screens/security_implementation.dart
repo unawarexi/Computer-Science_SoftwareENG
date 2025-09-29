@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dart_course/screens/security_screens/security_verifications.dart';
-import 'package:flutter_dart_course/security/main_security_manager.dart';
-import 'package:flutter_dart_course/security/password_pin_pattern.dart';
+import 'package:flutter_dart_course/source/security/main_security_manager.dart';
+import 'package:flutter_dart_course/source/security/password_pin_pattern.dart';
 import 'package:flutter_dart_course/services/customApiservices/auth_services.dart';
 
 // This class demonstrates how to implement security features in your app
