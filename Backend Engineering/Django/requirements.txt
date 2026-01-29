@@ -1,0 +1,153 @@
+# =============================================================================
+# DJANGO AI AGENTS - REQUIREMENTS
+# =============================================================================
+# A comprehensive list of dependencies for Django backend with AI agent integration
+# Install: pip install -r requirements.txt
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# DJANGO CORE
+# -----------------------------------------------------------------------------
+Django>=5.0,<6.0
+djangorestframework>=3.15.0
+django-cors-headers>=4.3.0
+django-environ>=0.11.2
+django-filter>=24.0
+django-extensions>=3.2.3
+django-redis>=5.4.0
+django-celery-beat>=2.6.0
+django-celery-results>=2.5.1
+
+# -----------------------------------------------------------------------------
+# DATABASE
+# -----------------------------------------------------------------------------
+psycopg2-binary>=2.9.9          # PostgreSQL adapter
+dj-database-url>=2.1.0           # Database URL parsing
+
+# -----------------------------------------------------------------------------
+# ASYNC & TASK QUEUE
+# -----------------------------------------------------------------------------
+celery>=5.3.6                    # Distributed task queue
+redis>=5.0.1                     # Redis client
+channels>=4.0.0                  # Django async support
+channels-redis>=4.2.0            # Redis channel layer
+
+# -----------------------------------------------------------------------------
+# API & SERIALIZATION
+# -----------------------------------------------------------------------------
+pydantic>=2.5.0                  # Data validation
+pydantic-settings>=2.1.0         # Settings management
+httpx>=0.26.0                    # Async HTTP client
+aiohttp>=3.9.0                   # Async HTTP
+requests>=2.31.0                 # HTTP library
+
+# -----------------------------------------------------------------------------
+# AI/ML FRAMEWORKS
+# -----------------------------------------------------------------------------
+langchain>=0.1.0                 # LLM application framework
+langchain-openai>=0.0.5          # OpenAI integration
+langchain-anthropic>=0.1.0       # Anthropic/Claude integration
+langchain-google-genai>=0.0.6    # Google Gemini integration
+langchain-community>=0.0.20      # Community integrations
+langgraph>=0.0.30                # State machine agents
+langsmith>=0.0.87                # LLM tracing & debugging
+
+# -----------------------------------------------------------------------------
+# LLM PROVIDERS
+# -----------------------------------------------------------------------------
+openai>=1.10.0                   # OpenAI API
+anthropic>=0.18.0                # Anthropic Claude API
+google-generativeai>=0.3.2       # Google Gemini API
+cohere>=4.45                     # Cohere API
+huggingface-hub>=0.20.3          # HuggingFace Hub
+
+# -----------------------------------------------------------------------------
+# VECTOR DATABASES & EMBEDDINGS
+# -----------------------------------------------------------------------------
+chromadb>=0.4.22                 # ChromaDB vector store
+pinecone-client>=3.0.0           # Pinecone vector store
+qdrant-client>=1.7.0             # Qdrant vector store
+weaviate-client>=4.4.0           # Weaviate vector store
+faiss-cpu>=1.7.4                 # FAISS vector search
+sentence-transformers>=2.3.1     # Sentence embeddings
+tiktoken>=0.6.0                  # OpenAI tokenizer
+
+# -----------------------------------------------------------------------------
+# RAG & DOCUMENT PROCESSING
+# -----------------------------------------------------------------------------
+unstructured>=0.12.0             # Document parsing
+pypdf>=4.0.0                     # PDF processing
+python-docx>=1.1.0               # Word documents
+openpyxl>=3.1.2                  # Excel files
+beautifulsoup4>=4.12.3           # HTML parsing
+markdown>=3.5.2                  # Markdown processing
+
+# -----------------------------------------------------------------------------
+# SEARCH & RETRIEVAL
+# -----------------------------------------------------------------------------
+tavily-python>=0.3.0             # Tavily search API
+duckduckgo-search>=4.4.3         # DuckDuckGo search
+wikipedia>=1.4.0                 # Wikipedia API
+arxiv>=2.1.0                     # ArXiv papers
+
+# -----------------------------------------------------------------------------
+# MULTI-AGENT FRAMEWORKS
+# -----------------------------------------------------------------------------
+crewai>=0.19.0                   # CrewAI multi-agent
+autogen>=0.2.0                   # Microsoft AutoGen
+
+# -----------------------------------------------------------------------------
+# OBSERVABILITY & MONITORING
+# -----------------------------------------------------------------------------
+prometheus-client>=0.19.0        # Prometheus metrics
+sentry-sdk>=1.40.0               # Error tracking
+structlog>=24.1.0                # Structured logging
+opentelemetry-api>=1.22.0        # OpenTelemetry tracing
+opentelemetry-sdk>=1.22.0
+opentelemetry-instrumentation-django>=0.43b0
+
+# -----------------------------------------------------------------------------
+# SECURITY
+# -----------------------------------------------------------------------------
+python-jose[cryptography]>=3.3.0 # JWT tokens
+passlib[bcrypt]>=1.7.4           # Password hashing
+cryptography>=42.0.0             # Cryptographic functions
+
+# -----------------------------------------------------------------------------
+# UTILITIES
+# -----------------------------------------------------------------------------
+python-dotenv>=1.0.1             # Environment variables
+pyyaml>=6.0.1                    # YAML parsing
+ujson>=5.9.0                     # Fast JSON
+orjson>=3.9.12                   # Even faster JSON
+tenacity>=8.2.3                  # Retry logic
+cachetools>=5.3.2                # Caching utilities
+numpy>=1.26.3                    # Numerical computing
+pandas>=2.2.0                    # Data manipulation
+
+# -----------------------------------------------------------------------------
+# TESTING
+# -----------------------------------------------------------------------------
+pytest>=8.0.0                    # Testing framework
+pytest-django>=4.8.0             # Django pytest plugin
+pytest-asyncio>=0.23.4           # Async testing
+pytest-cov>=4.1.0                # Coverage reporting
+factory-boy>=3.3.0               # Test factories
+faker>=22.5.0                    # Fake data generation
+httpx>=0.26.0                    # Async HTTP testing
+
+# -----------------------------------------------------------------------------
+# CODE QUALITY
+# -----------------------------------------------------------------------------
+black>=24.1.1                    # Code formatter
+isort>=5.13.2                    # Import sorting
+flake8>=7.0.0                    # Linting
+mypy>=1.8.0                      # Type checking
+pre-commit>=3.6.0                # Git hooks
+
+# -----------------------------------------------------------------------------
+# PRODUCTION
+# -----------------------------------------------------------------------------
+gunicorn>=21.2.0                 # WSGI server
+uvicorn[standard]>=0.27.0        # ASGI server
+whitenoise>=6.6.0                # Static file serving
