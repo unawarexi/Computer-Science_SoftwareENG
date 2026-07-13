@@ -1,0 +1,14 @@
+[project]
+name = "fast-api-05-project"
+version = "0.1.0"
+description = "FastAPI project for 05-Reinforcement-Learning"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic-settings"
+]
+
+[tool.uv]
+managed = true

@@ -1,0 +1,14 @@
+[project]
+name = "fast-api-06-project"
+version = "0.1.0"
+description = "FastAPI project for 06-AI-Agents"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic-settings"
+]
+
+[tool.uv]
+managed = true

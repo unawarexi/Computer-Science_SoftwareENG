@@ -1,0 +1,14 @@
+[project]
+name = "fast-api-07-project"
+version = "0.1.0"
+description = "FastAPI project for 07-Specializations"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic-settings"
+]
+
+[tool.uv]
+managed = true
