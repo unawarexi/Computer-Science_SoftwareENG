@@ -11,15 +11,15 @@ This module introduces you to the principles and practices of Clean Architecture
 
 ## Weekly Breakdown
 
-**Week 1: Introduction to Clean Architecture**
+**[Week 1: Introduction to Clean Architecture](./01-intro-clean-architecture.md)**
 - Key concepts and terminology
 - Why Clean Architecture matters
 
-**Week 2–3: Layered Architectures**
+**[Week 2–3: Layered Architectures](./02-layered-architectures.md)**
 - Hexagonal, Onion, Ports & Adapters
 - Building modular projects
 
-**Week 4: Dependency Rule**
+**[Week 4: Dependency Rule](./03-dependency-rule.md)**
 - Understanding and applying the dependency rule
 - Using SOLID in architecture
 
