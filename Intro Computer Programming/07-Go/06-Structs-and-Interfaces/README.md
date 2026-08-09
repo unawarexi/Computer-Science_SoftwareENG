@@ -150,3 +150,11 @@ type ReadWriter interface {
     Writer
 }
 ```
+
+### Copier Interface (Prototype Pattern)
+While there is no built-in `Copier` interface, defining one is a common pattern for creating deep copies (clones) of objects without knowing their exact type.
+```go
+type Copier interface {
+    Copy() Copier
+}
+```

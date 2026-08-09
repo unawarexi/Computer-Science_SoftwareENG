@@ -51,6 +51,11 @@ func DemonstrateInterfaces() {
 	case string:
 		fmt.Println("It's a string:", v)
 	}
+
+	// 6. Copier Interface (Prototype Pattern)
+	doc1 := Document{Title: "My Doc", Content: "Hello World"}
+	doc2 := doc1.Copy().(Document) // Clone the document
+	fmt.Println("Cloned Document:", doc2.Title)
 }
 
 // Reader and Writer demonstrate interface embedding.
@@ -59,4 +64,23 @@ type Writer interface{ Write() }
 type ReadWriter interface {
 	Reader
 	Writer
+}
+
+// Copier defines an interface for objects that can clone themselves.
+type Copier interface {
+	Copy() Copier
+}
+
+// Document is a struct that implements the Copier interface.
+type Document struct {
+	Title   string
+	Content string
+}
+
+// Copy creates a deep copy of the Document.
+func (d Document) Copy() Copier {
+	return Document{
+		Title:   d.Title,
+		Content: d.Content,
+	}
 }
