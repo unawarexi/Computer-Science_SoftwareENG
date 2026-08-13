@@ -40,6 +40,8 @@ mu.Lock()
 mu.Unlock()
 ```
 
+---
+
 ## Channels
 
 Channels are typed conduits through which you can send and receive values between goroutines. They provide a safe mechanism for concurrent processes to communicate without the need for complex, error-prone locking mechanisms (like Mutexes), aligning perfectly with the CSP model.
@@ -87,3 +89,52 @@ for w := 1; w <= 3; w++ {
     go worker(w, jobsChan, resultsChan)
 }
 ```
+
+---
+
+## Tokens and Semaphores
+
+A **token** in Go concurrency is a unit of permission — a value placed in a channel that grants a goroutine the right to proceed with work. The concept of tokens underpins the **semaphore pattern**, one of the most important techniques for limiting concurrency.
+
+### Why Tokens Matter
+
+Goroutines are cheap, but the *work* they do is often expensive. Consider:
+- Making HTTP requests (limited by rate limits or file descriptors)
+- Querying a database (limited by connection pool size)
+- Performing heavy CPU computations (limited by available cores)
+
+Without rate limiting, you might spawn 10,000 goroutines that each try to open a database connection simultaneously — crashing your system. Tokens enforce a cap on how many goroutines can be active at the same time.
+
+### The Semaphore Pattern (Buffered Channel as Semaphore)
+
+A buffered channel of capacity `N` can act as a semaphore that limits concurrency to at most `N` simultaneous goroutines. Each goroutine must **acquire a token** (send to the channel) before starting and **release it** (receive from the channel) when done.
+
+```go
+// A semaphore that allows at most 3 concurrent goroutines
+semaphore := make(chan struct{}, 3)
+
+for i := 0; i < 10; i++ {
+    go func(id int) {
+        semaphore <- struct{}{} // Acquire token — blocks if semaphore is full
+        defer func() { <-semaphore }() // Release token when done
+
+        doExpensiveWork(id)
+    }(i)
+}
+```
+
+### Token Buckets (Rate Limiting)
+
+A **token bucket** controls the *rate* at which operations happen over time, not just the total concurrency. The bucket is periodically refilled with tokens; if the bucket is empty, goroutines must wait. Go's `time.Ticker` makes this easy to implement.
+
+```go
+// Allow at most 5 operations per second
+rate := time.Tick(200 * time.Millisecond)
+
+for request := range requests {
+    <-rate // Block until a token is available from the ticker
+    go handleRequest(request)
+}
+```
+
+See `tokens.go` for complete, runnable examples of all these patterns.

@@ -29,6 +29,8 @@ import (
 )
 ```
 
+---
+
 ## Modules
 
 While packages organize code within a single project, **Modules** are how Go manages dependencies *between* projects. A module is a collection of related Go packages that are versioned together as a single unit. Modules solve the infamous dependency hell by precisely tracking which versions of external libraries your project requires.
@@ -42,18 +44,103 @@ To start a new Go project, you initialize a module using the `go mod init` comma
 go mod init github.com/username/myproject
 ```
 
-### `go.mod`
+---
+
+## `go.mod` — The Module Manifest
 
 The `go.mod` file is the heart of a Go module. It defines the module's path, the minimum required Go version, and explicitly lists all the external modules (and their specific versions) that the project depends on. When you import a new package and run `go build` or `go test`, Go automatically updates this file.
 
 ```go
 module github.com/username/myproject
 
-go 1.20
+go 1.21
 
-require github.com/google/uuid v1.3.0
+require (
+    github.com/google/uuid v1.3.0
+    github.com/gin-gonic/gin v1.9.1
+)
 ```
 
-### `go.sum`
+### The `require` Directive
 
-Alongside `go.mod`, Go automatically generates a `go.sum` file. This file contains cryptographic checksums for the exact content of specific module versions you downloaded. This is a crucial security feature: it guarantees that the code you depend on hasn't been maliciously altered or accidentally changed since you first downloaded it, ensuring reproducible builds across any environment.
+`require` is the most important directive in `go.mod`. It lists every external module your project directly depends on, along with its **exact semantic version** (e.g., `v1.3.0`). Go guarantees reproducible builds by always using precisely the version listed here.
+
+```go
+require (
+    // Direct dependency — used directly in your code
+    github.com/google/uuid v1.3.0
+
+    // Indirect dependency (marked with '// indirect') — required by one of your
+    // direct dependencies, but not imported directly by your code
+    golang.org/x/sys v0.12.0 // indirect
+)
+```
+
+You can add a requirement by running:
+```bash
+go get github.com/google/uuid@v1.3.0
+```
+
+### The `replace` Directive
+
+The `replace` directive is a powerful tool that overrides where Go resolves a module. This is used in three common scenarios:
+
+**1. Local Development / Testing a Fork:**
+When you are developing a dependency locally alongside your project, `replace` lets you point at a local directory instead of the published version on the internet.
+
+```go
+require github.com/my-org/mylib v1.0.0
+
+// Replace the published module with your local version on disk.
+// The right-hand side is a relative or absolute filesystem path.
+replace github.com/my-org/mylib => ../mylib
+```
+
+**2. Patching a Bug in a Third-Party Module:**
+If you need to fix a bug in someone else's library and can't wait for them to release a new version, fork it, apply the fix, and replace the original with your fork.
+
+```go
+require github.com/original/library v1.2.3
+
+// Use your fixed fork instead of the original
+replace github.com/original/library => github.com/your-fork/library v1.2.3-patched
+```
+
+**3. Replacing a Specific Version:**
+You can also replace just one version of a module with another version.
+
+```go
+replace github.com/some/module v1.0.0 => github.com/some/module v1.0.1
+```
+
+> **⚠️ Warning:** `replace` directives in a module only affect the root module's build. If you publish a library to `pkg.go.dev`, any `replace` directives in your `go.mod` will be **ignored** by users who import your library. `replace` is designed for applications (top-level modules), not libraries.
+
+---
+
+## `go.sum` — The Cryptographic Lock File
+
+Alongside `go.mod`, Go automatically generates a `go.sum` file. This file contains cryptographic checksums (SHA-256 hashes) for the exact content of specific module versions you downloaded. This is a crucial security feature: it guarantees that the code you depend on hasn't been maliciously altered or accidentally changed since you first downloaded it, ensuring reproducible builds across any environment.
+
+```
+github.com/google/uuid v1.3.0 h1:t6JiXb mAZnueoENLqEjuWQ2P0VWHECi/bnL5/4kbS0=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+```
+
+Do not edit `go.sum` manually — the `go` tool manages it entirely.
+
+---
+
+## Useful Module Commands
+
+| Command | Description |
+|---|---|
+| `go mod init <path>` | Initialize a new module |
+| `go get <module>@<version>` | Add or update a dependency |
+| `go mod tidy` | Remove unused dependencies, add missing ones |
+| `go mod download` | Download all dependencies to the local cache |
+| `go mod vendor` | Copy dependencies into a local `vendor/` directory |
+| `go mod graph` | Print the module dependency graph |
+| `go mod why <module>` | Explain why a module is needed |
+| `go list -m all` | List all modules in the build |
+
+See also: [`important-packages.md`](important-packages.md) for a comprehensive reference of standard library packages and popular third-party modules.
