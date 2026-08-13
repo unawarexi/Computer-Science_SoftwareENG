@@ -8,18 +8,29 @@ Setting up Go is famously straightforward.
 
 1. **Install Go**: Download the installer for your operating system (Windows, macOS, or Linux) from the official website: [https://go.dev/dl/](https://go.dev/dl/).
 2. **Verify Installation**: Open your terminal and run `go version`. You should see the installed version printed out.
-3. **IDE Setup**: 
+3. **IDE Setup**:
    - **VS Code**: Install the official **Go** extension by the Go Team at Google. It provides autocompletion, formatting, and debugging out of the box.
    - **GoLand**: JetBrains offers a powerful, dedicated Go IDE (paid, but excellent for enterprise work).
 4. **Initialize a Project**: Create a new directory, navigate into it, and initialize a Go module to track dependencies:
+
    ```bash
    mkdir my-app && cd my-app
    go mod init github.com/yourusername/my-app
+   go get <package name url> # eg. go get github.com/joho/godotenv
+   go mod vendor # Copy the dependencies to vendor folder
+   go build # Compile the code - creates an executable file
+   ./<executable-name> # Run the executable file
+   go clean -cache # Clear the cache
+   go clean -testcache # Clear the test cache
+   go clean -modcache # Clear the mod cache
+   go clean -pkgcache # Clear the pkg cache
+   go clean -x # Clear the executable file
+
    ```
 
 ## 2. Industry-Grade Folder Structure
 
-Unlike frameworks like Ruby on Rails or Django, Go does not enforce a strict folder structure. However, the industry has largely converged on the **Standard Go Project Layout**. 
+Unlike frameworks like Ruby on Rails or Django, Go does not enforce a strict folder structure. However, the industry has largely converged on the **Standard Go Project Layout**.
 
 Here is what a production-grade backend service looks like:
 
@@ -50,9 +61,11 @@ my-app/
 When organizing code within the `internal/` directory, industry-grade Go projects typically avoid "spaghetti code" by utilizing structural patterns.
 
 ### Clean Architecture (Ports and Adapters)
+
 Go developers heavily favor separating business logic from infrastructure. A typical request flows like this:
-1. **Transport Layer (Handlers)**: Extracts JSON from an HTTP request and passes it to the service layer. Knows *nothing* about databases.
+
+1. **Transport Layer (Handlers)**: Extracts JSON from an HTTP request and passes it to the service layer. Knows _nothing_ about databases.
 2. **Service/Use-Case Layer**: Contains the pure business logic (e.g., "Check if user is 18 before creating an account"). It calls the repository layer via **Interfaces**.
-3. **Repository Layer**: The only layer that talks to the database (SQL, MongoDB, etc.). 
+3. **Repository Layer**: The only layer that talks to the database (SQL, MongoDB, etc.).
 
 By using **Interfaces** between these layers, you can easily mock the database during unit testing, ensuring your business logic is robust and independent of the framework or database engine.
