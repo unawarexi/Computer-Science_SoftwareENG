@@ -40,6 +40,24 @@ mu.Lock()
 mu.Unlock()
 ```
 
+### RWMutex (Read/Write Mutex)
+
+`sync.RWMutex` is an optimized variant of `sync.Mutex` built for scenarios where data is **read often but written rarely** (e.g., a cached config or in-memory store). It allows any number of goroutines to hold a **read lock** simultaneously, but a **write lock** is exclusive — it blocks all other readers and writers. Use `RLock`/`RUnlock` for reads and `Lock`/`Unlock` for writes.
+
+```go
+var rw sync.RWMutex
+
+// Multiple goroutines can call RLock at the same time
+rw.RLock()
+fmt.Println(sharedData)
+rw.RUnlock()
+
+// Write lock is exclusive — all readers/writers wait
+rw.Lock()
+sharedData = "updated"
+rw.Unlock()
+```
+
 ---
 
 ## Channels
