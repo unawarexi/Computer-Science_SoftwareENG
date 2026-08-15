@@ -28,6 +28,22 @@ Setting up Go is famously straightforward.
 
    ```
 
+5. **Database Setup with SQLC and Goose**:
+   To generate Go code from SQL queries and apply database migrations, run the following commands:
+
+```bash
+# Generate Go code using sqlc
+sqlc generate
+
+# Load environment variables (contains DATABASE_URL)
+set -a
+source .env
+set +a
+
+# Apply database migrations using goose
+goose -dir sql/schema postgres "$DATABASE_URL" up
+```
+
 ## 2. Industry-Grade Folder Structure
 
 Unlike frameworks like Ruby on Rails or Django, Go does not enforce a strict folder structure. However, the industry has largely converged on the **Standard Go Project Layout**.
